@@ -140,16 +140,18 @@ page("blog.html","Blog · Prayag Mohanty",'''
   var box=document.getElementById('posts');
   var fail=function(){box.innerHTML='<p class="lead">Could not load posts right now. <a href="https://medium.com/@topper1728">Read them on Medium →</a></p>'};
   var esc=function(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML};
-  fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent('https://medium.com/feed/@topper1728'))
-    .then(function(r){return r.json()})
-    .then(function(d){
-      if(!d.items||!d.items.length){fail();return}
-      box.innerHTML=d.items.map(function(p){
-        var text=esc(p.description.replace(/<[^>]+>/g,' ').replace(/\\s+/g,' ').trim().slice(0,160));
-        var img=p.thumbnail?'<img class="thumb" src="'+esc(p.thumbnail)+'" alt="" loading="lazy">':'';
-        var date=new Date(p.pubDate.replace(' ','T')+'Z').toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});
-        return '<a class="card post" href="'+esc(p.link)+'">'+img+'<span class="year">'+date+'</span><h3>'+esc(p.title)+'</h3><p>'+text+'…</p></a>';
-      }).join('');
+  var card=function(p){
+    var img=p.thumbnail?'<img class="thumb" src="'+esc(p.thumbnail)+'" alt="" loading="lazy">':'';
+    return '<a class="card post" href="'+esc(p.link)+'">'+img+'<span class="year">'+esc(p.date)+'</span><h3>'+esc(p.title)+'</h3><p>'+esc(p.excerpt)+'…</p></a>';
+  };
+  var show=function(ps){if(!ps||!ps.length)throw 0;box.innerHTML=ps.map(card).join('')};
+  var strip=function(h){return h.replace(/<[^>]+>/g,' ').replace(/\\s+/g,' ').trim().slice(0,160)};
+  fetch('posts.json',{cache:'no-cache'}).then(function(r){return r.json()}).then(show)
+    .catch(function(){
+      return fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent('https://medium.com/feed/@topper1728'))
+        .then(function(r){return r.json()})
+        .then(function(d){show((d.items||[]).map(function(p){return {title:p.title,link:p.link,thumbnail:p.thumbnail,excerpt:strip(p.description),
+          date:new Date(p.pubDate.replace(' ','T')+'Z').toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'})}}))});
     }).catch(fail);
 })();
 </script>
