@@ -8,3 +8,10 @@ btn.addEventListener('click', () => {
   try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
   paint();
 });
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+  burger.textContent = open ? '✕' : '☰';
+});
