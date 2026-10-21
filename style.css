@@ -25,7 +25,7 @@ h2{font-size:30px;margin:48px 0 18px}
 h3{font-size:19px;margin:0 0 6px}
 .about{display:grid;grid-template-columns:1fr 280px;gap:36px;align-items:start}
 .side{text-align:center;font-size:14px}
-.photo{width:100%;aspect-ratio:4/5;border-radius:10px;background:linear-gradient(135deg,var(--card),var(--line));display:flex;align-items:center;justify-content:center;font:600 72px "Lora",serif;color:var(--accent);margin-bottom:10px}
+.photo{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:10px;margin-bottom:10px}
 .pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
 .pill{border:1px solid var(--accent);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:600}
 .pill:hover{background:var(--accent);color:var(--bg);text-decoration:none}

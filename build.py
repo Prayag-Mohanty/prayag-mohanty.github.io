@@ -43,7 +43,7 @@ page("index.html","Prayag Mohanty",f'''
 <p>I'm interested in computer architecture, especially where GPUs waste on-chip resources. I'm currently working on address translation for multi-chip-module GPUs, and I previously designed a locality-aware victim cache for GPU L1 data caches. I also enjoy taking designs all the way from RTL to GDSII.</p>
 <p>Outside academics, I play badminton, take part in quizzes, and write.</p>
 </div>
-<div class="side"><div class="photo" aria-hidden="true">PM</div>Mumbai, India<div class="pills">{pills()}</div></div></div>
+<div class="side"><img class="photo" src="photo.jpg" alt="Prayag Mohanty" width="280" height="280">Mumbai, India<div class="pills">{pills()}</div></div></div>
 
 <h2>Research Interests</h2>
 <div class="cards">
