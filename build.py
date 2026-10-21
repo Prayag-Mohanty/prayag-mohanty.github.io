@@ -1,7 +1,7 @@
 """Generates the static pages. Run: python3 build.py"""
 import html, re
 NAV=[("index.html","About"),("research.html","Research"),("projects.html","Projects"),("experience.html","Experience"),("academics.html","Academics"),("blog.html","Blogs"),("cv.html","CV")]
-FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Lora:wght@500;600&amp;display=swap" rel="stylesheet">'
+FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Lora:wght@500;600&amp;display=swap" rel="stylesheet">'
 CSS=open("style.css").read()
 JS=open("script.js").read()
 # Reference links: the first mention of each term on a page (outside links, page titles and scripts) is linked.

@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Prayag Mohanty</title>
 <meta name="description" content="Prayag Mohanty: M.Tech researcher in computer architecture and VLSI at IIT Bombay.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Lora:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&amp;family=Lora:wght@500;600&amp;display=swap" rel="stylesheet">
 <style>:root{--bg:#1c1c1d;--nav:#1c1c1d;--fg:#ebebeb;--muted:#9aa1a9;--line:#33363b;--card:#22262d;--accent:#5b9cf5;--foot:#e9e9e9;--footfg:#333}
 :root[data-theme=light]{--bg:#fafaf9;--nav:#fafaf9;--fg:#1f2328;--muted:#656d76;--line:#e1e4e8;--card:#fff;--accent:#2563eb;--foot:#ececec;--footfg:#333}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.7 "Inter",-apple-system,"Segoe UI",sans-serif;min-height:100vh;display:flex;flex-direction:column}
+body{margin:0;background:var(--bg);color:var(--fg);font:300 17px/1.7 "Inter",-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;min-height:100vh;display:flex;flex-direction:column}
 a{color:var(--accent);text-decoration:none}
 a:hover{text-decoration:underline}
 .wrap{max-width:960px;margin:0 auto;padding:0 24px;width:100%}
-header.nav{position:sticky;top:0;z-index:10;background:var(--nav);border-bottom:1px solid var(--line)}
+header.nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--nav) 72%,transparent);-webkit-backdrop-filter:blur(14px) saturate(160%);backdrop-filter:blur(14px) saturate(160%);border-bottom:1px solid var(--line)}
 header.nav .wrap{display:flex;justify-content:space-between;align-items:center;height:58px}
 .brand{font-family:"Lora",Georgia,serif;font-size:20px;color:var(--fg)}
 .brand:hover{text-decoration:none}
@@ -68,7 +68,7 @@ footer{background:var(--foot);color:var(--footfg);font-size:14px;padding:10px 0}
 @media(max-width:760px){.about{grid-template-columns:1fr}.news li{grid-template-columns:1fr;gap:0}
 .actions{gap:10px}
 #burger{display:block}
-nav{display:none;position:absolute;top:58px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--nav);border-bottom:1px solid var(--line);padding:6px 24px 12px}
+nav{display:none;position:absolute;top:58px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:color-mix(in srgb,var(--nav) 85%,transparent);-webkit-backdrop-filter:blur(14px) saturate(160%);backdrop-filter:blur(14px) saturate(160%);border-bottom:1px solid var(--line);padding:6px 24px 12px}
 nav.open{display:flex}
 nav a{padding:12px 0;border-bottom:1px solid var(--line);font-size:17px}
 nav a:last-child{border-bottom:0}
@@ -101,6 +101,7 @@ a.ref:hover{text-decoration:underline;text-underline-offset:3px}
 .cvbox iframe{display:block;width:100%;height:82vh;border:0}
 .cvbox img{display:block;width:100%;height:auto}
 [hidden]{display:none!important}
+strong,b{font-weight:600}
 </style>
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
