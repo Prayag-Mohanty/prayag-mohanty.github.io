@@ -63,8 +63,12 @@ def linkify(body):
         parts[i]=part
     return "".join(parts)
 
+SITE="https://prayag-mohanty.github.io/"
+DESC="Prayag Mohanty is an M.Tech student at IIT Bombay researching GPU architecture, memory systems and VLSI. Research, projects, CV and blogs."
+PERSON='<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Prayag Mohanty","url":"https://prayag-mohanty.github.io/","image":"https://prayag-mohanty.github.io/photo.jpg","jobTitle":"M.Tech student, Electrical Engineering","affiliation":{"@type":"CollegeOrUniversity","name":"Indian Institute of Technology Bombay","url":"https://www.iitb.ac.in"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"BITS Pilani, K. K. Birla Goa Campus"}],"knowsAbout":["Computer architecture","GPU architecture","VLSI design","Memory systems"],"sameAs":["https://github.com/Prayag-Mohanty","https://www.linkedin.com/in/prayag-mohanty","https://scholar.google.com/citations?user=QQJklAYAAAAJ","https://www.researchgate.net/profile/Prayag-Mohanty","https://medium.com/@topper1728","https://www.youtube.com/@prayag_mohanty","https://www.behance.net/prayagmohanty"]}</script>'
 DL=' download="Prayag_Mohanty_CV.pdf"'
 def page(fn,title,body):
+    url=SITE+("" if fn=="index.html" else fn)
     body=linkify(re.sub(r"@@(\w+)@@",lambda m:LOGO[m.group(1)],body))
     nav="".join(f'<a href="{h}"{" class=on" if h==fn else ""}>{t}</a>' for h,t in NAV)
     open(fn,"w").write(f'''<!doctype html>
@@ -73,7 +77,21 @@ def page(fn,title,body):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
-<meta name="description" content="Prayag Mohanty: M.Tech researcher in computer architecture and VLSI at IIT Bombay.">
+<meta name="description" content="{DESC}">
+<meta name="author" content="Prayag Mohanty">
+<link rel="canonical" href="{url}">
+<meta property="og:type" content="{"profile" if fn=="index.html" else "website"}">
+<meta property="og:site_name" content="Prayag Mohanty">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{DESC}">
+<meta property="og:url" content="{url}">
+<meta property="og:image" content="{SITE}photo.jpg">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#1c1c1d">
+{PERSON if fn=="index.html" else ""}
 {FONTS}
 <style>{CSS}</style>
 <script>try{{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
@@ -94,6 +112,8 @@ LAYERS=I('<path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>')
 SHIELD=I('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>')
 GH="https://github.com/Prayag-Mohanty"
 LI="https://www.linkedin.com/in/prayag-mohanty"
+GS="https://scholar.google.com/citations?user=QQJklAYAAAAJ"
+RG="https://www.researchgate.net/profile/Prayag-Mohanty"
 # Email is stored as reversed, base64-encoded user and domain; script.js assembles the
 # mailto: link only on hover, focus or tap, so the address never appears in the HTML.
 MAIL_ATTRS=' data-u="NzcxMW00Mg==" data-d="bmkuY2EuYnRpaQ==" rel="nofollow"'
@@ -104,15 +124,17 @@ LOGO={
  "medium":'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.21 0A4.201 4.201 0 0 0 0 4.21v15.58A4.201 4.201 0 0 0 4.21 24h15.58A4.201 4.201 0 0 0 24 19.79v-1.093c-.137.013-.278.02-.422.02-2.577 0-4.027-2.146-4.09-4.832a7.592 7.592 0 0 1 .022-.708c.093-1.186.475-2.241 1.105-3.022a3.885 3.885 0 0 1 1.395-1.1c.468-.237 1.127-.367 1.664-.367h.023c.101 0 .202.004.303.01V4.211A4.201 4.201 0 0 0 19.79 0Zm.198 5.583h4.165l3.588 8.435 3.59-8.435h3.864v.146l-.019.004c-.705.16-1.063.397-1.063 1.254h-.003l.003 10.274c.06.676.424.885 1.063 1.03l.02.004v.145h-4.923v-.145l.019-.005c.639-.144.994-.353 1.054-1.03V7.267l-4.745 11.15h-.261L6.15 7.569v9.445c0 .857.358 1.094 1.063 1.253l.02.004v.147H4.405v-.147l.019-.004c.705-.16 1.065-.397 1.065-1.253V6.987c0-.857-.358-1.094-1.064-1.254l-.018-.004zm19.25 3.668c-1.086.023-1.733 1.323-1.813 3.124H24V9.298a1.378 1.378 0 0 0-.342-.047Zm-1.862 3.632c-.1 1.756.86 3.239 2.204 3.634v-3.634z"/></svg>',
  "youtube":'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>',
  "behance":'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z"/></svg>',
+ "googlescholar":'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>',
+ "researchgate":'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.586 0c-.818 0-1.508.19-2.073.565-.563.377-.97.936-1.213 1.68a3.193 3.193 0 0 0-.112.437 8.365 8.365 0 0 0-.078.53 9 9 0 0 0-.05.727c-.01.282-.013.621-.013 1.016a31.121 31.123 0 0 0 .014 1.017 9 9 0 0 0 .05.727 7.946 7.946 0 0 0 .077.53h-.005a3.334 3.334 0 0 0 .113.438c.245.743.65 1.303 1.214 1.68.565.376 1.256.564 2.075.564.8 0 1.536-.213 2.105-.603.57-.39.94-.916 1.175-1.65.076-.235.135-.558.177-.93a10.9 10.9 0 0 0 .043-1.207v-.82c0-.095-.047-.142-.14-.142h-3.064c-.094 0-.14.047-.14.141v.956c0 .094.046.14.14.14h1.666c.056 0 .084.03.084.086 0 .36 0 .62-.036.865-.038.244-.1.447-.147.606-.108.385-.348.664-.638.876-.29.212-.738.35-1.227.35-.545 0-.901-.15-1.21-.353-.306-.203-.517-.454-.67-.915a3.136 3.136 0 0 1-.147-.762 17.366 17.367 0 0 1-.034-.656c-.01-.26-.014-.572-.014-.939a26.401 26.403 0 0 1 .014-.938 15.821 15.822 0 0 1 .035-.656 3.19 3.19 0 0 1 .148-.76 1.89 1.89 0 0 1 .742-1.01c.344-.244.593-.352 1.137-.352.508 0 .815.096 1.144.303.33.207.528.492.764.925.047.094.111.118.198.07l1.044-.43c.075-.048.09-.115.042-.199a3.549 3.549 0 0 0-.466-.742 3 3 0 0 0-.679-.607 3.313 3.313 0 0 0-.903-.41A4.068 4.068 0 0 0 19.586 0zM8.217 5.836c-1.69 0-3.036.086-4.297.086-1.146 0-2.291 0-3.007-.029v.831l1.088.2c.744.144 1.174.488 1.174 2.264v11.288c0 1.777-.43 2.12-1.174 2.263l-1.088.2v.832c.773-.029 2.12-.086 3.465-.086 1.29 0 2.951.057 3.667.086v-.831l-1.49-.2c-.773-.115-1.174-.487-1.174-2.264v-4.784c.688.057 1.29.057 2.206.057 1.748 3.123 3.41 5.472 4.355 6.56.86 1.032 2.177 1.691 3.839 1.691.487 0 1.003-.086 1.318-.23v-.744c-1.031 0-2.063-.716-2.808-1.518-1.26-1.376-2.95-3.582-4.355-6.074 2.32-.545 4.04-2.722 4.04-4.9 0-3.208-2.492-4.698-5.758-4.698zm-.515 1.29c2.406 0 3.839 1.26 3.839 3.552 0 2.263-1.547 3.782-4.097 3.782-.974 0-1.404-.03-2.063-.086v-7.19c.66-.059 1.547-.059 2.32-.059z"/></svg>',
  "mail":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>',
  "cv":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg>',
  "globe":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>',
 }
 def ico(href,name,label,cls="ico",extra=""): return f'<a class="{cls}" href="{href}" aria-label="{label}" title="{label}"{extra}>{LOGO[name]}</a>'
-def pills(): return ico("#contact","mail","Email",cls="ico js-mail",extra=MAIL_ATTRS)+ico(GH,"github","GitHub")+ico(LI,"linkedin","LinkedIn")
+def pills(): return ico("#contact","mail","Email",cls="ico js-mail",extra=MAIL_ATTRS)+ico(GS,"googlescholar","Google Scholar")+ico(RG,"researchgate","ResearchGate")+ico(GH,"github","GitHub")+ico(LI,"linkedin","LinkedIn")
 
 # ---------- About ----------
-page("index.html","Prayag Mohanty",f'''
+page("index.html","Prayag Mohanty · IIT Bombay · Computer Architecture",f'''
 <div class="about"><div>
 <h1>Prayag Mohanty</h1>
 <p class="sub">M.Tech student, EE (Integrated Circuits &amp; Systems), IIT Bombay</p>
@@ -274,3 +296,8 @@ page("cv.html","CV · Prayag Mohanty",f'''
 </div>
 <script>if(navigator.pdfViewerEnabled&&matchMedia('(min-width:761px)').matches){{document.getElementById('cvframe').hidden=false;document.getElementById('cvimg').hidden=true}}</script>
 ''')
+
+# ---------- Search engines ----------
+pages=["index.html"]+[h for h,_ in NAV if h.endswith(".html") and h!="index.html"]
+open("sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{SITE}{'' if p=='index.html' else p}</loc></url>\n" for p in pages)+"</urlset>\n")
+open("robots.txt","w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}sitemap.xml\n")

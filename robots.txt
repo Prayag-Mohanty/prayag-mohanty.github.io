@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://prayag-mohanty.github.io/sitemap.xml
