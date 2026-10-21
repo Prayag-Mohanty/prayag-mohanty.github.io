@@ -79,7 +79,7 @@ def page(fn,title,body):
 <script>try{{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 </head>
 <body>
-<header class="nav"><div class="wrap"><a class="brand" href="index.html">Prayag Mohanty</a><div class="actions"><nav id="menu">{nav}</nav><button id="theme" aria-label="Toggle theme" title="Toggle theme">☀</button><button id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button></div></div></header>
+<header class="nav"><div class="progress" aria-hidden="true"></div><div class="wrap"><a class="brand" href="index.html">Prayag Mohanty</a><div class="actions"><nav id="menu">{nav}</nav><button id="theme" aria-label="Toggle theme" title="Toggle theme">☀</button><button id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button></div></div></header>
 <main><div class="wrap">
 {body}
 </div></main>
@@ -107,7 +107,7 @@ LOGO={
  "globe":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>',
 }
 def ico(href,name,label,cls="ico",extra=""): return f'<a class="{cls}" href="{href}" aria-label="{label}" title="{label}"{extra}>{LOGO[name]}</a>'
-def pills(): return ico("cv.html","cv","CV")+ico(MAIL,"mail","Email")+ico(GH,"github","GitHub")+ico(LI,"linkedin","LinkedIn")
+def pills(): return ico(MAIL,"mail","Email")+ico(GH,"github","GitHub")+ico(LI,"linkedin","LinkedIn")
 
 # ---------- About ----------
 page("index.html","Prayag Mohanty",f'''
