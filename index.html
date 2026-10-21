@@ -19,14 +19,15 @@ header.nav .wrap{display:flex;justify-content:space-between;align-items:center;h
 .brand{font-family:"Lora",Georgia,serif;font-size:20px;color:var(--fg)}
 .brand:hover{text-decoration:none}
 nav{display:flex;gap:22px;align-items:center}
-nav a{color:var(--fg);font-size:16px;padding:16px 0;border-bottom:2px solid transparent}
-nav a:hover{color:var(--accent);text-decoration:none}
-nav a.on{color:var(--accent);border-bottom-color:var(--accent)}
+nav a{color:var(--accent);font-size:16px;padding:16px 0;border-bottom:2px solid transparent}
+nav a:hover{text-decoration:none;border-bottom-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+nav a.on{font-weight:600;border-bottom-color:var(--accent)}
 #theme{background:none;border:1px solid var(--line);border-radius:50%;width:34px;height:34px;color:var(--fg);font-size:16px;line-height:1;cursor:pointer}
 #theme:hover{border-color:var(--accent);color:var(--accent)}
 main{flex:1;padding:56px 0 72px}
 .card{box-shadow:0 1px 2px rgba(0,0,0,.08)}
 h1,h2,h3{font-family:"Lora",Georgia,serif;font-weight:600;line-height:1.2}
+h1,h2{color:var(--accent)}
 h1{font-size:clamp(38px,7vw,58px);margin:0 0 6px}
 h1::after{content:"";display:block;width:60px;height:4px;background:var(--accent);border-radius:2px;margin-top:14px}
 .sub{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:18px 0 28px}
@@ -105,13 +106,13 @@ a.ref:hover{text-decoration:underline;text-underline-offset:3px}
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
-<header class="nav"><div class="wrap"><a class="brand" href="index.html">Prayag Mohanty</a><div class="actions"><nav id="menu"><a href="index.html" class=on>About</a><a href="blog.html">Blog</a><a href="research.html">Research</a><a href="projects.html">Projects</a><a href="experience.html">Experience</a><a href="academics.html">Academics</a><a href="cv.html">CV</a></nav><button id="theme" aria-label="Toggle theme" title="Toggle theme">☀</button><button id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button></div></div></header>
+<header class="nav"><div class="wrap"><a class="brand" href="index.html">Prayag Mohanty</a><div class="actions"><nav id="menu"><a href="index.html" class=on>About</a><a href="research.html">Research</a><a href="projects.html">Projects</a><a href="experience.html">Experience</a><a href="academics.html">Academics</a><a href="blog.html">Blogs</a><a href="cv.html">CV</a></nav><button id="theme" aria-label="Toggle theme" title="Toggle theme">☀</button><button id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button></div></div></header>
 <main><div class="wrap">
 
 <div class="about"><div>
 <h1>Prayag Mohanty</h1>
-<p class="sub">M.Tech student, EE (Integrated Circuits &amp; Systems), <a class="ref" href="https://www.iitb.ac.in">IIT Bombay</a></p>
-<p>Hey! I'm Prayag, an M.Tech student at IIT Bombay, advised by <strong><a class="ref" href="https://www.ee.iitb.ac.in/~viren/">Prof. Virendra Singh</a></strong> at the Computer Architecture and Dependable Systems Lab (CADSL). I did my B.E. (Hons.) in Electrical &amp; Electronics Engineering at <a class="ref" href="https://www.bits-pilani.ac.in/goa/">BITS Pilani</a>, Goa campus.</p>
+<p class="sub">M.Tech student, EE (Integrated Circuits &amp; Systems), IIT Bombay</p>
+<p>Hey! I'm Prayag, an M.Tech student at <a class="ref" href="https://www.iitb.ac.in">IIT Bombay</a>, advised by <strong><a class="ref" href="https://www.ee.iitb.ac.in/~viren/">Prof. Virendra Singh</a></strong> at the Computer Architecture and Dependable Systems Lab (CADSL). I did my B.E. (Hons.) in Electrical &amp; Electronics Engineering at <a class="ref" href="https://www.bits-pilani.ac.in/goa/">BITS Pilani</a>, Goa campus.</p>
 <p>I'm interested in computer architecture, especially where GPUs waste on-chip resources. I'm currently working on address translation for multi-chip-module GPUs, and I previously designed a locality-aware victim cache for GPU L1 data caches. I also enjoy taking designs all the way from RTL to GDSII.</p>
 <p>Outside academics, I play badminton, take part in quizzes, and write.</p>
 </div>

@@ -1,6 +1,6 @@
 """Generates the static pages. Run: python3 build.py"""
 import html, re
-NAV=[("index.html","About"),("blog.html","Blog"),("research.html","Research"),("projects.html","Projects"),("experience.html","Experience"),("academics.html","Academics"),("cv.html","CV")]
+NAV=[("index.html","About"),("research.html","Research"),("projects.html","Projects"),("experience.html","Experience"),("academics.html","Academics"),("blog.html","Blogs"),("cv.html","CV")]
 FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Lora:wght@500;600&amp;display=swap" rel="stylesheet">'
 CSS=open("style.css").read()
 JS=open("script.js").read()
@@ -42,12 +42,14 @@ REFS=[
 ]
 SKIP={"a","h1","h2","script","title"}
 def linkify(body):
-    used=set(); depth=0
+    used=set(); depth=0; insub=False
     parts=re.split(r"(<[^>]+>)",body)
     for i,part in enumerate(parts):
         if part.startswith("<"):
             m=re.match(r"<(/?)(\w+)",part)
             if m and m.group(2) in SKIP: depth+=-1 if m.group(1) else 1
+            elif part.startswith('<p class="sub"'): depth+=1; insub=True
+            elif part=="</p>" and insub: depth-=1; insub=False
             continue
         if depth: continue
         hits=[]  # (start,end,term,url) found in this text node, non-overlapping
@@ -196,9 +198,9 @@ page("projects.html","Projects · Prayag Mohanty",f'''
 ''')
 
 # ---------- Blog ----------
-page("blog.html","Blog · Prayag Mohanty",'''
-<h1>Blog</h1><p class="sub">Writing, videos and design</p>
-<h2 style="margin-top:0">Latest from Medium</h2>
+page("blog.html","Blogs · Prayag Mohanty",'''
+<h1>Blogs</h1>
+<h2 style="margin-top:36px">Latest from Medium</h2>
 <div id="posts" class="cards"><p class="lead">Loading posts…</p></div>
 <p class="lead" style="margin-top:18px"><a href="https://medium.com/@topper1728">Read everything on Medium →</a></p>
 <h2>Elsewhere</h2>
