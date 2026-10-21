@@ -106,8 +106,15 @@ repos=[("MGVm-GPU","Go","Multi-chip-module GPU simulator work behind my address-
 ("Family-Tree","JavaScript","Interactive family tree, deployed on Vercel."),
 ("Sharada-script-practice-tool","HTML","A tool for practising the Sharada script."),
 ("wel-website","HTML","Website for the Wadhwani Electronics Laboratory, IIT Bombay.")]
-hwh="".join(f'<div class="card tl"><span class="year">{y}</span><h3>{t}</h3><p>{d}</p><div class="tags">{"".join(f"<span>{x}</span>" for x in g)}</div></div>' for y,t,d,g in hw)
-rh="".join(f'<a class="card" href="{GH}/{n}"><h3>{n}</h3><p>{d}</p>'+(f'<div class="tags"><span>{l}</span></div>' if l else '')+'</a>' for n,l,d in repos)
+SITES={"wel-website":"https://www.ee.iitb.ac.in/~wel_iitb","Family-Tree":"https://family-tree-praymo.vercel.app","QM":"https://prayag-mohanty.github.io/QM/","badminton-scoreboard":"https://prayag-mohanty.github.io/badminton-scoreboard/"}
+HWREPO={"Microarchitectural side-channels on RISC-V out-of-order cores":"RISC-V-Spectre","ML-driven LLC partitioning for CPU-GPU SoCs":"GPU-SoC","Spiking neural networks and compute-in-memory":"Neuromorphic-Computing"}
+def links(repo,site=None):
+    out=[]
+    if repo: out.append(f'<a href="{GH}/{repo}">GitHub ↗</a>')
+    if site: out.append(f'<a href="{site}">Live site ↗</a>')
+    return f'<div class="plinks">{"".join(out)}</div>' if out else ''
+hwh="".join(f'<div class="card tl"><span class="year">{y}</span><h3>{t}</h3><p>{d}</p><div class="tags">{"".join(f"<span>{x}</span>" for x in g)}</div>{links(HWREPO.get(t))}</div>' for y,t,d,g in hw)
+rh="".join(f'<div class="card"><h3>{n}</h3><p>{d}</p>'+(f'<div class="tags"><span>{l}</span></div>' if l else '')+links(n,SITES.get(n))+'</div>' for n,l,d in repos)
 page("projects.html","Projects · Prayag Mohanty",f'''
 <h1>Projects</h1><p class="sub">Hardware, architecture and side projects</p>
 <h2 style="margin-top:0">Hardware &amp; Architecture</h2>
@@ -120,11 +127,32 @@ page("projects.html","Projects · Prayag Mohanty",f'''
 # ---------- Blog ----------
 page("blog.html","Blog · Prayag Mohanty",'''
 <h1>Blog</h1><p class="sub">Writing, videos and design</p>
+<h2 style="margin-top:0">Latest from Medium</h2>
+<div id="posts" class="cards"><p class="lead">Loading posts…</p></div>
+<p class="lead" style="margin-top:18px"><a href="https://medium.com/@topper1728">Read everything on Medium →</a></p>
+<h2>Elsewhere</h2>
 <div class="cards">
-<a class="card" href="https://medium.com/@topper1728"><h3>Medium</h3><p>Essays and writing at @topper1728.</p></a>
 <a class="card" href="https://www.youtube.com/@prayag_mohanty/featured"><h3>YouTube</h3><p>Videos on my channel, @prayag_mohanty.</p></a>
 <a class="card" href="https://www.behance.net/prayagmohanty"><h3>Behance</h3><p>Design work and creative projects.</p></a>
 </div>
+<script>
+(function(){
+  var box=document.getElementById('posts');
+  var fail=function(){box.innerHTML='<p class="lead">Could not load posts right now. <a href="https://medium.com/@topper1728">Read them on Medium →</a></p>'};
+  var esc=function(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML};
+  fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent('https://medium.com/feed/@topper1728'))
+    .then(function(r){return r.json()})
+    .then(function(d){
+      if(!d.items||!d.items.length){fail();return}
+      box.innerHTML=d.items.map(function(p){
+        var text=esc(p.description.replace(/<[^>]+>/g,' ').replace(/\\s+/g,' ').trim().slice(0,160));
+        var img=p.thumbnail?'<img class="thumb" src="'+esc(p.thumbnail)+'" alt="" loading="lazy">':'';
+        var date=new Date(p.pubDate.replace(' ','T')+'Z').toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});
+        return '<a class="card post" href="'+esc(p.link)+'">'+img+'<span class="year">'+date+'</span><h3>'+esc(p.title)+'</h3><p>'+text+'…</p></a>';
+      }).join('');
+    }).catch(fail);
+})();
+</script>
 ''')
 
 # ---------- Experience ----------
