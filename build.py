@@ -16,7 +16,7 @@ def page(fn,title,body):
 <script>try{{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 </head>
 <body>
-<header class="nav"><div class="wrap"><a class="brand" href="index.html">Prayag Mohanty</a><nav>{nav}<button id="theme" aria-label="Toggle theme">◐</button></nav></div></header>
+<header class="nav"><div class="wrap"><a class="brand" href="index.html">Prayag Mohanty</a><nav>{nav}<button id="theme" aria-label="Toggle theme" title="Toggle theme">☀</button></nav></div></header>
 <main><div class="wrap">
 {body}
 </div></main>
