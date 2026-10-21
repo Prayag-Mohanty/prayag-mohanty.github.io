@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV · Prayag Mohanty</title>
+<meta name="description" content="Prayag Mohanty: M.Tech researcher in computer architecture and VLSI at IIT Bombay.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Lora:wght@500;600&amp;display=swap" rel="stylesheet">
+<style>:root{--bg:#1c1c1d;--nav:#1c1c1d;--fg:#ebebeb;--muted:#9aa1a9;--line:#33363b;--card:#22262d;--accent:#5b9cf5;--foot:#e9e9e9;--footfg:#333}
+:root[data-theme=light]{--bg:#fafaf9;--nav:#fafaf9;--fg:#1f2328;--muted:#656d76;--line:#e1e4e8;--card:#fff;--accent:#2563eb;--foot:#ececec;--footfg:#333}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.7 "Inter",-apple-system,"Segoe UI",sans-serif;min-height:100vh;display:flex;flex-direction:column}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px;width:100%}
+header.nav{position:sticky;top:0;z-index:10;background:var(--nav);border-bottom:1px solid var(--line)}
+header.nav .wrap{display:flex;justify-content:space-between;align-items:center;height:58px}
+.brand{font-family:"Lora",Georgia,serif;font-size:20px;color:var(--fg)}
+.brand:hover{text-decoration:none}
+nav{display:flex;gap:22px;align-items:center}
+nav a{color:var(--fg);font-size:16px;padding:16px 0;border-bottom:2px solid transparent}
+nav a:hover{color:var(--accent);text-decoration:none}
+nav a.on{color:var(--accent);border-bottom-color:var(--accent)}
+#theme{background:none;border:1px solid var(--line);border-radius:50%;width:34px;height:34px;color:var(--fg);font-size:16px;line-height:1;cursor:pointer}
+#theme:hover{border-color:var(--accent);color:var(--accent)}
+main{flex:1;padding:56px 0 72px}
+.card{box-shadow:0 1px 2px rgba(0,0,0,.08)}
+h1,h2,h3{font-family:"Lora",Georgia,serif;font-weight:600;line-height:1.2}
+h1{font-size:clamp(38px,7vw,58px);margin:0 0 6px}
+h1::after{content:"";display:block;width:60px;height:4px;background:var(--accent);border-radius:2px;margin-top:14px}
+.sub{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin:18px 0 28px}
+h2{font-size:30px;margin:48px 0 18px}
+h3{font-size:19px;margin:0 0 6px}
+.about{display:grid;grid-template-columns:1fr 280px;gap:36px;align-items:start}
+.side{text-align:center;font-size:14px}
+.photo{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:cover;border-radius:10px;margin-bottom:10px}
+.pills{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.pill{border:1px solid var(--accent);border-radius:999px;padding:5px 14px;font-size:14px;font-weight:600}
+.pill:hover{background:var(--accent);color:var(--bg);text-decoration:none}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.card{display:block;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;color:var(--fg)}
+a.card:hover{text-decoration:none;border-color:var(--accent);transform:translateY(-2px)}
+.card{transition:transform .15s,border-color .15s}
+.card p{color:var(--muted);font-size:15px;margin:4px 0 0}
+.icon{width:38px;height:38px;border-radius:10px;background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.icon svg{width:20px;height:20px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.tags span{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:1px 10px;color:var(--muted)}
+.list{list-style:none;padding:0;margin:0}
+.list li{border-bottom:1px solid var(--line);padding:12px 0 12px 18px;position:relative}
+.list li::before{content:"▸";position:absolute;left:0;color:var(--accent);font-size:12px;top:17px}
+.list small{display:block;color:var(--muted);font-size:14px}
+.news{list-style:none;padding:0;margin:0}
+.news li{display:grid;grid-template-columns:110px 1fr;gap:12px;padding:12px 14px;border-radius:12px;border-bottom:1px solid var(--line)}
+.news li:hover{background:var(--card)}
+.date{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding-top:4px}
+.tl{border-left:3px solid var(--accent);border-radius:12px 12px 12px 12px}
+.year{display:inline-block;font-size:12px;font-weight:700;color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,transparent);border-radius:999px;padding:1px 12px;margin-bottom:8px}
+.code{color:var(--accent);font-weight:600}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.cols .card{padding:12px 16px;font-size:16px}
+.lead{color:var(--muted)}
+.social{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:44px}
+footer{background:var(--foot);color:var(--footfg);font-size:14px;padding:10px 0}
+.actions{display:flex;align-items:center;gap:22px}
+#burger{display:none;background:none;border:1px solid var(--line);border-radius:8px;width:38px;height:34px;color:var(--fg);font-size:18px;line-height:1;cursor:pointer}
+@media(max-width:760px){.about{grid-template-columns:1fr}.news li{grid-template-columns:1fr;gap:0}
+.actions{gap:10px}
+#burger{display:block}
+nav{display:none;position:absolute;top:58px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--nav);border-bottom:1px solid var(--line);padding:6px 24px 12px}
+nav.open{display:flex}
+nav a{padding:12px 0;border-bottom:1px solid var(--line);font-size:17px}
+nav a:last-child{border-bottom:0}
+nav a.on{border-bottom-color:var(--line)}
+.side{max-width:320px;margin:0 auto}}
+.plinks{display:flex;gap:16px;margin-top:12px;font-size:14px;font-weight:600}
+.card h3 a{color:inherit}
+.post{padding:0;overflow:hidden}
+.post .thumb{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.post .year,.post h3,.post p{margin-left:20px;margin-right:20px}
+.post .year{margin-top:16px}
+.post p{margin-bottom:18px}
+.ico{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;color:var(--fg);transition:color .15s,border-color .15s,transform .15s}
+.ico svg{width:20px;height:20px}
+.ico:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+.ico.sm{width:34px;height:34px}
+.ico.sm svg{width:17px;height:17px}
+.pills{gap:12px}
+.social{gap:16px}
+.social .ico{width:52px;height:52px}
+.social .ico svg{width:24px;height:24px}
+.plinks{gap:10px}
+a.ref{color:inherit;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--accent) 60%,transparent);text-underline-offset:3px;text-decoration-thickness:1.5px}
+a.ref:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:42px;vertical-align:middle;background:var(--accent);color:var(--bg);border:1px solid var(--accent);border-radius:999px;padding:8px 18px;font-weight:600;font-size:15px;margin:0 8px 8px 0}
+.btn svg{width:18px;height:18px}
+.btn:hover{text-decoration:none;opacity:.88}
+.btn.ghost{background:none;color:var(--accent)}
+.cvbox{margin-top:16px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.cvbox iframe{display:block;width:100%;height:82vh;border:0}
+.cvbox img{display:block;width:100%;height:auto}
+[hidden]{display:none!important}
+</style>
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<header class="nav"><div class="wrap"><a class="brand" href="index.html">Prayag Mohanty</a><div class="actions"><nav id="menu"><a href="index.html">About</a><a href="blog.html">Blog</a><a href="research.html">Research</a><a href="projects.html">Projects</a><a href="experience.html">Experience</a><a href="academics.html">Academics</a><a href="cv.html" class=on>CV</a></nav><button id="theme" aria-label="Toggle theme" title="Toggle theme">☀</button><button id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button></div></div></header>
+<main><div class="wrap">
+
+<h1>CV</h1><p class="sub">Curriculum vitae</p>
+<p><a class="btn" href="cv.pdf" download="Prayag_Mohanty_CV.pdf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M12 18v-6M9 15l3 3 3-3"/></svg> Download PDF</a> <a class="btn ghost" href="cv.pdf" target="_blank" rel="noopener">Open in new tab</a></p>
+<div class="cvbox">
+<iframe id="cvframe" src="cv.pdf#view=FitH" title="Prayag Mohanty CV" hidden></iframe>
+<a id="cvimg" href="cv.pdf"><img src="cv.png" alt="Prayag Mohanty CV" width="1323" height="1871" loading="lazy"></a>
+</div>
+<script>if(navigator.pdfViewerEnabled&&matchMedia('(min-width:761px)').matches){document.getElementById('cvframe').hidden=false;document.getElementById('cvimg').hidden=true}</script>
+
+</div></main>
+<footer><div class="wrap">© <span id="year"></span> Prayag Mohanty.</div></footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();
+const root = document.documentElement;
+const btn = document.getElementById('theme');
+const paint = () => { btn.textContent = root.dataset.theme === 'light' ? '☾' : '☀'; };
+paint();
+btn.addEventListener('click', () => {
+  root.dataset.theme = root.dataset.theme === 'light' ? 'dark' : 'light';
+  try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
+  paint();
+});
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+burger.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+  burger.textContent = open ? '✕' : '☰';
+});
+</script>
+</body>
+</html>

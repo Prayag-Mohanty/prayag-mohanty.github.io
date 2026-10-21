@@ -1,6 +1,6 @@
 """Generates the static pages. Run: python3 build.py"""
 import html, re
-NAV=[("index.html","About"),("blog.html","Blog"),("research.html","Research"),("projects.html","Projects"),("experience.html","Experience"),("academics.html","Academics"),("cv.pdf","CV")]
+NAV=[("index.html","About"),("blog.html","Blog"),("research.html","Research"),("projects.html","Projects"),("experience.html","Experience"),("academics.html","Academics"),("cv.html","CV")]
 FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Lora:wght@500;600&amp;display=swap" rel="stylesheet">'
 CSS=open("style.css").read()
 JS=open("script.js").read()
@@ -64,7 +64,7 @@ def linkify(body):
 DL=' download="Prayag_Mohanty_CV.pdf"'
 def page(fn,title,body):
     body=linkify(re.sub(r"@@(\w+)@@",lambda m:LOGO[m.group(1)],body))
-    nav="".join(f'<a href="{h}"{" class=on" if h==fn else ""}{DL if h=="cv.pdf" else ""}>{t}</a>' for h,t in NAV)
+    nav="".join(f'<a href="{h}"{" class=on" if h==fn else ""}>{t}</a>' for h,t in NAV)
     open(fn,"w").write(f'''<!doctype html>
 <html lang="en">
 <head>
@@ -105,7 +105,7 @@ LOGO={
  "globe":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>',
 }
 def ico(href,name,label,cls="ico",extra=""): return f'<a class="{cls}" href="{href}" aria-label="{label}" title="{label}"{extra}>{LOGO[name]}</a>'
-def pills(): return ico("cv.pdf","cv","Download CV (PDF)",extra=DL)+ico(MAIL,"mail","Email")+ico(GH,"github","GitHub")+ico(LI,"linkedin","LinkedIn")
+def pills(): return ico("cv.html","cv","CV")+ico(MAIL,"mail","Email")+ico(GH,"github","GitHub")+ico(LI,"linkedin","LinkedIn")
 
 # ---------- About ----------
 page("index.html","Prayag Mohanty",f'''
@@ -258,4 +258,15 @@ page("academics.html","Academics · Prayag Mohanty",f'''
 <p class="lead" style="margin-top:14px">Also: VLSI Testing &amp; Verification, Machine Learning.</p>
 <h2>Technical Skills</h2>
 <div class="cards" style="grid-template-columns:1fr">{"".join(f'<div class="card"><span class="code">{k}</span>: {v}</div>' for k,v in skills)}</div>
+''')
+
+# ---------- CV ----------
+page("cv.html","CV · Prayag Mohanty",f'''
+<h1>CV</h1><p class="sub">Curriculum vitae</p>
+<p><a class="btn" href="cv.pdf"{DL}>@@cv@@ Download PDF</a> <a class="btn ghost" href="cv.pdf" target="_blank" rel="noopener">Open in new tab</a></p>
+<div class="cvbox">
+<iframe id="cvframe" src="cv.pdf#view=FitH" title="Prayag Mohanty CV" hidden></iframe>
+<a id="cvimg" href="cv.pdf"><img src="cv.png" alt="Prayag Mohanty CV" width="1323" height="1871" loading="lazy"></a>
+</div>
+<script>if(navigator.pdfViewerEnabled&&matchMedia('(min-width:761px)').matches){{document.getElementById('cvframe').hidden=false;document.getElementById('cvimg').hidden=true}}</script>
 ''')

@@ -93,11 +93,19 @@ nav a.on{border-bottom-color:var(--line)}
 .plinks{gap:10px}
 a.ref{color:inherit;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--accent) 60%,transparent);text-underline-offset:3px;text-decoration-thickness:1.5px}
 a.ref:hover{color:var(--accent);text-decoration-color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:42px;vertical-align:middle;background:var(--accent);color:var(--bg);border:1px solid var(--accent);border-radius:999px;padding:8px 18px;font-weight:600;font-size:15px;margin:0 8px 8px 0}
+.btn svg{width:18px;height:18px}
+.btn:hover{text-decoration:none;opacity:.88}
+.btn.ghost{background:none;color:var(--accent)}
+.cvbox{margin-top:16px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#fff}
+.cvbox iframe{display:block;width:100%;height:82vh;border:0}
+.cvbox img{display:block;width:100%;height:auto}
+[hidden]{display:none!important}
 </style>
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
-<header class="nav"><div class="wrap"><a class="brand" href="index.html">Prayag Mohanty</a><div class="actions"><nav id="menu"><a href="index.html">About</a><a href="blog.html">Blog</a><a href="research.html">Research</a><a href="projects.html" class=on>Projects</a><a href="experience.html">Experience</a><a href="academics.html">Academics</a><a href="cv.pdf" download="Prayag_Mohanty_CV.pdf">CV</a></nav><button id="theme" aria-label="Toggle theme" title="Toggle theme">☀</button><button id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button></div></div></header>
+<header class="nav"><div class="wrap"><a class="brand" href="index.html">Prayag Mohanty</a><div class="actions"><nav id="menu"><a href="index.html">About</a><a href="blog.html">Blog</a><a href="research.html">Research</a><a href="projects.html" class=on>Projects</a><a href="experience.html">Experience</a><a href="academics.html">Academics</a><a href="cv.html">CV</a></nav><button id="theme" aria-label="Toggle theme" title="Toggle theme">☀</button><button id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button></div></div></header>
 <main><div class="wrap">
 
 <h1>Projects</h1><p class="sub">Hardware, architecture and side projects</p>
