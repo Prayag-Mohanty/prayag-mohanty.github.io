@@ -38,3 +38,14 @@ p{margin:0 0 12px}
 .links{list-style:none;padding:0;display:flex;gap:20px;flex-wrap:wrap}
 footer{color:var(--muted);font-size:14px;padding-top:30px;padding-bottom:50px;border-top:1px solid var(--line)}
 @media(max-width:560px){.item{grid-template-columns:1fr;gap:2px}.hero{padding-top:70px}}
+a.card{display:block;color:inherit}
+a.card:hover{text-decoration:none}
+a.card h3{color:var(--fg)}
+.lead,.note{color:var(--muted)}
+.note{font-size:15px;margin-top:8px}
+.skills{display:grid;grid-template-columns:200px 1fr;gap:8px 16px;margin:0}
+.skills dt{color:var(--muted);font-size:15px}
+.skills dd{margin:0}
+.plain{padding-left:20px;margin:0}
+.plain li{margin-bottom:10px}
+@media(max-width:560px){.skills{grid-template-columns:1fr;gap:0}.skills dd{margin-bottom:12px}}
