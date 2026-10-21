@@ -64,6 +64,13 @@ a.card:hover{text-decoration:none;border-color:var(--accent);transform:translate
 .social{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:44px}
 footer{background:var(--foot);color:var(--footfg);font-size:14px;padding:10px 0}
 @media(max-width:760px){.about{grid-template-columns:1fr}.news li{grid-template-columns:1fr;gap:0}nav{gap:12px;flex-wrap:wrap;justify-content:flex-end}nav a{font-size:14px;padding:8px 0}header.nav .wrap{height:auto;padding-top:8px;padding-bottom:4px}.brand{font-size:17px}}
+.plinks{display:flex;gap:16px;margin-top:12px;font-size:14px;font-weight:600}
+.card h3 a{color:inherit}
+.post{padding:0;overflow:hidden}
+.post .thumb{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+.post .year,.post h3,.post p{margin-left:20px;margin-right:20px}
+.post .year{margin-top:16px}
+.post p{margin-bottom:18px}
 </style>
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
@@ -72,11 +79,32 @@ footer{background:var(--foot);color:var(--footfg);font-size:14px;padding:10px 0}
 <main><div class="wrap">
 
 <h1>Blog</h1><p class="sub">Writing, videos and design</p>
+<h2 style="margin-top:0">Latest from Medium</h2>
+<div id="posts" class="cards"><p class="lead">Loading posts…</p></div>
+<p class="lead" style="margin-top:18px"><a href="https://medium.com/@topper1728">Read everything on Medium →</a></p>
+<h2>Elsewhere</h2>
 <div class="cards">
-<a class="card" href="https://medium.com/@topper1728"><h3>Medium</h3><p>Essays and writing at @topper1728.</p></a>
 <a class="card" href="https://www.youtube.com/@prayag_mohanty/featured"><h3>YouTube</h3><p>Videos on my channel, @prayag_mohanty.</p></a>
 <a class="card" href="https://www.behance.net/prayagmohanty"><h3>Behance</h3><p>Design work and creative projects.</p></a>
 </div>
+<script>
+(function(){
+  var box=document.getElementById('posts');
+  var fail=function(){box.innerHTML='<p class="lead">Could not load posts right now. <a href="https://medium.com/@topper1728">Read them on Medium →</a></p>'};
+  var esc=function(s){var d=document.createElement('div');d.textContent=s;return d.innerHTML};
+  fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent('https://medium.com/feed/@topper1728'))
+    .then(function(r){return r.json()})
+    .then(function(d){
+      if(!d.items||!d.items.length){fail();return}
+      box.innerHTML=d.items.map(function(p){
+        var text=esc(p.description.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,160));
+        var img=p.thumbnail?'<img class="thumb" src="'+esc(p.thumbnail)+'" alt="" loading="lazy">':'';
+        var date=new Date(p.pubDate.replace(' ','T')+'Z').toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});
+        return '<a class="card post" href="'+esc(p.link)+'">'+img+'<span class="year">'+date+'</span><h3>'+esc(p.title)+'</h3><p>'+text+'…</p></a>';
+      }).join('');
+    }).catch(fail);
+})();
+</script>
 
 </div></main>
 <footer><div class="wrap">© <span id="year"></span> Prayag Mohanty.</div></footer>
