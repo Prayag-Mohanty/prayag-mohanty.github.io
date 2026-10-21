@@ -91,6 +91,8 @@ nav a.on{border-bottom-color:var(--line)}
 .social .ico{width:52px;height:52px}
 .social .ico svg{width:24px;height:24px}
 .plinks{gap:10px}
+a.ref{color:inherit;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--accent) 60%,transparent);text-underline-offset:3px;text-decoration-thickness:1.5px}
+a.ref:hover{color:var(--accent);text-decoration-color:var(--accent)}
 </style>
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
@@ -100,12 +102,12 @@ nav a.on{border-bottom-color:var(--line)}
 
 <h1>Research</h1><p class="sub">GPU architecture and memory systems</p>
 <div class="cards" style="grid-template-columns:1fr">
-<div class="card tl"><span class="year">Jul 2025 – Present</span><h3>Address Translation for Multi-Chip-Module GPUs</h3><p>M.Tech thesis, advised by Prof. Virendra Singh. Investigating virtual-memory translation as a bottleneck when the TLB and page-walk hierarchy is split across dies. Proposes coupling TLB and cache replacement through dead-page prediction at the L1 TLB, prototyped on the MGvm MCM-GPU simulator. Targeting a conference submission by mid-2027.</p></div>
-<div class="card tl"><span class="year">Jan – May 2026</span><h3>Locality-Aware Victim Cache for GPGPU L1 Data Caches</h3><p>Co-designed a victim cache held in underused register-file capacity, with a warp scheduler that favours warps whose working set is still resident, so retained L1D lines are re-referenced before eviction. Implemented end to end in GPGPU-Sim on an NVIDIA Volta GV100 configuration for a 1.042× IPC gain over baseline. Presented as a poster at the Indo-Japanese Workshop on Trustable Cyber-Physical Cognitive Systems, IIT Bombay (2026).</p></div>
+<div class="card tl"><span class="year">Jul 2025 – Present</span><h3>Address Translation for Multi-Chip-Module GPUs</h3><p>M.Tech thesis, advised by <a class="ref" href="https://www.ee.iitb.ac.in/~viren/">Prof. Virendra Singh</a>. Investigating virtual-memory translation as a bottleneck when the TLB and page-walk hierarchy is split across dies. Proposes coupling TLB and cache replacement through dead-page prediction at the L1 TLB, prototyped on the <a class="ref" href="https://github.com/Prayag-Mohanty/MGVm-GPU">MGvm</a> MCM-GPU simulator. Targeting a conference submission by mid-2027.</p></div>
+<div class="card tl"><span class="year">Jan – May 2026</span><h3>Locality-Aware Victim Cache for GPGPU L1 Data Caches</h3><p>Co-designed a victim cache held in underused register-file capacity, with a warp scheduler that favours warps whose working set is still resident, so retained L1D lines are re-referenced before eviction. Implemented end to end in <a class="ref" href="https://github.com/gpgpu-sim/gpgpu-sim_distribution">GPGPU-Sim</a> on an <a class="ref" href="https://www.nvidia.com/en-us/data-center/volta-gpu-architecture/">NVIDIA Volta</a> GV100 configuration for a 1.042× IPC gain over baseline. Presented as a poster at the Indo-Japanese Workshop on Trustable Cyber-Physical Cognitive Systems, <a class="ref" href="https://www.iitb.ac.in">IIT Bombay</a> (2026).</p></div>
 <div class="card tl"><span class="year">Jul – Dec 2025</span><h3>Out-of-Order Scheduling for GPUs</h3><p>M.Tech seminar. Surveyed seven out-of-order GPU proposals from ISCA, HPCA, TPDS and TACO (2016–2024), tabulating performance, power and area trade-offs: 6.9–38% speedup for 0.007–13% power and 0.05–2.4% area. Showed that PTX-level simulation overstates available ILP, so SASS-level evaluation is the right baseline.</p></div>
 </div>
 <h2>Publications</h2>
-<ul class="list"><li><strong>Locality-Aware Victim Caching with Locality-Aware Warp Scheduling for GPUs</strong><small>P. Mohanty and V. Singh · IEEE International Conference on Computer Design (ICCD) 2026 · under review</small></li></ul>
+<ul class="list"><li><strong>Locality-Aware Victim Caching with Locality-Aware Warp Scheduling for GPUs</strong><small>P. Mohanty and V. Singh · IEEE International Conference on Computer Design (<a class="ref" href="https://www.iccd-conf.com">ICCD</a>) 2026 · under review</small></li></ul>
 
 </div></main>
 <footer><div class="wrap">© <span id="year"></span> Prayag Mohanty.</div></footer>

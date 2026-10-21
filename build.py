@@ -4,9 +4,66 @@ NAV=[("index.html","About"),("blog.html","Blog"),("research.html","Research"),("
 FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Lora:wght@500;600&amp;display=swap" rel="stylesheet">'
 CSS=open("style.css").read()
 JS=open("script.js").read()
+# Reference links: the first mention of each term on a page (outside links, page titles and scripts) is linked.
+REFS=[
+ ("BITS Pilani","https://www.bits-pilani.ac.in/goa/"),
+ ("Indian Institute of Technology Bombay","https://www.iitb.ac.in"),
+ ("IIT Bombay","https://www.iitb.ac.in"),
+ ("Prof. Virendra Singh","https://www.ee.iitb.ac.in/~viren/"),
+ ("Virendra Singh","https://www.ee.iitb.ac.in/~viren/"),
+ ("Wadhwani Electronics Laboratory","https://www.ee.iitb.ac.in/~wel_iitb"),
+ ("GPGPU-Sim","https://github.com/gpgpu-sim/gpgpu-sim_distribution"),
+ ("AccelSim","https://accel-sim.github.io"),
+ ("gem5","https://www.gem5.org"),
+ ("MGvm","https://github.com/Prayag-Mohanty/MGVm-GPU"),
+ ("Chipyard","https://github.com/ucb-bar/chipyard"),
+ ("OpenLane","https://github.com/The-OpenROAD-Project/OpenLane"),
+ ("SkyWater sky130","https://github.com/google/skywater-pdk"),
+ ("sky130","https://github.com/google/skywater-pdk"),
+ ("ICCD","https://www.iccd-conf.com"),
+ ("NVIDIA Volta","https://www.nvidia.com/en-us/data-center/volta-gpu-architecture/"),
+ ("PYNQ","https://www.pynq.io"),
+ ("Zedboard","https://digilent.com/reference/programmable-logic/zedboard/start"),
+ ("Vivado","https://www.xilinx.com/products/design-tools/vivado.html"),
+ ("GNU Radio","https://www.gnuradio.org"),
+ ("USRP","https://www.ettus.com"),
+ ("SpikeSim","https://github.com/Intelligent-Computing-Lab-Yale/SpikeSim"),
+ ("Yosys","https://github.com/YosysHQ/yosys"),
+ ("OpenSTA","https://github.com/The-OpenROAD-Project/OpenSTA"),
+ ("Magic","http://opencircuitdesign.com/magic/"),
+ ("KLayout","https://www.klayout.de"),
+ ("PyTorch","https://pytorch.org"),
+ ("scikit-learn","https://scikit-learn.org"),
+ ("Zerodha Varsity","https://zerodha.com/varsity/"),
+ ("Spectre","https://spectreattack.com"),
+ ("AlexNet","https://en.wikipedia.org/wiki/AlexNet"),
+ ("Learning-With-Errors","https://en.wikipedia.org/wiki/Learning_with_errors"),
+ ("RISC-V","https://riscv.org"),
+]
+SKIP={"a","h1","h2","script","title"}
+def linkify(body):
+    used=set(); depth=0
+    parts=re.split(r"(<[^>]+>)",body)
+    for i,part in enumerate(parts):
+        if part.startswith("<"):
+            m=re.match(r"<(/?)(\w+)",part)
+            if m and m.group(2) in SKIP: depth+=-1 if m.group(1) else 1
+            continue
+        if depth: continue
+        hits=[]  # (start,end,term,url) found in this text node, non-overlapping
+        for term,url in REFS:
+            if url in used: continue
+            mm=re.search(r"(?<![\w/.-])"+re.escape(term)+r"(?!\w)",part)
+            if mm and not any(mm.start()<h[1] and h[0]<mm.end() for h in hits):
+                hits.append((mm.start(),mm.end(),term,url)); used.add(url)
+        for st,en,term,url in sorted(hits,reverse=True):
+            part=part[:st]+f'<a class="ref" href="{url}">{term}</a>'+part[en:]
+        parts[i]=part
+    return "".join(parts)
+
 DL=' download="Prayag_Mohanty_CV.pdf"'
 def page(fn,title,body):
-    body=re.sub(r"@@(\w+)@@",lambda m:LOGO[m.group(1)],body)
+    body=linkify(re.sub(r"@@(\w+)@@",lambda m:LOGO[m.group(1)],body))
     nav="".join(f'<a href="{h}"{" class=on" if h==fn else ""}{DL if h=="cv.pdf" else ""}>{t}</a>' for h,t in NAV)
     open(fn,"w").write(f'''<!doctype html>
 <html lang="en">

@@ -91,6 +91,8 @@ nav a.on{border-bottom-color:var(--line)}
 .social .ico{width:52px;height:52px}
 .social .ico svg{width:24px;height:24px}
 .plinks{gap:10px}
+a.ref{color:inherit;text-decoration:underline;text-decoration-color:color-mix(in srgb,var(--accent) 60%,transparent);text-underline-offset:3px;text-decoration-thickness:1.5px}
+a.ref:hover{color:var(--accent);text-decoration-color:var(--accent)}
 </style>
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
@@ -100,14 +102,14 @@ nav a.on{border-bottom-color:var(--line)}
 
 <h1>Academics</h1><p class="sub">Education, courses and skills</p>
 <div class="cards" style="grid-template-columns:1fr">
-<div class="card tl"><span class="year">2024 – 2027 (expected)</span><h3>Indian Institute of Technology Bombay</h3><p>M.Tech, Electrical Engineering (Integrated Circuits &amp; Systems)</p></div>
-<div class="card tl"><span class="year">2020 – 2024</span><h3>BITS Pilani, K. K. Birla Goa Campus</h3><p>B.E. (Hons.), Electrical &amp; Electronics Engineering</p></div>
+<div class="card tl"><span class="year">2024 – 2027 (expected)</span><h3><a class="ref" href="https://www.iitb.ac.in">Indian Institute of Technology Bombay</a></h3><p>M.Tech, Electrical Engineering (Integrated Circuits &amp; Systems)</p></div>
+<div class="card tl"><span class="year">2020 – 2024</span><h3><a class="ref" href="https://www.bits-pilani.ac.in/goa/">BITS Pilani</a>, K. K. Birla Goa Campus</h3><p>B.E. (Hons.), Electrical &amp; Electronics Engineering</p></div>
 </div>
 <h2>Courses</h2>
 <div class="cols"><div class="card"><span class="code">EE797</span> - M.Tech Project</div><div class="card"><span class="code">EE739</span> - Processor Design</div><div class="card"><span class="code">EE748</span> - Advanced Topics in Computer Architecture</div><div class="card"><span class="code">EE746</span> - Neuromorphic Engineering</div><div class="card"><span class="code">EE712</span> - Embedded Systems Design</div><div class="card"><span class="code">EE691</span> - Research and Development Project</div><div class="card"><span class="code">EE694</span> - M.Tech Seminar</div><div class="card"><span class="code">EE671</span> - VLSI Design</div></div>
 <p class="lead" style="margin-top:14px">Also: VLSI Testing &amp; Verification, Machine Learning.</p>
 <h2>Technical Skills</h2>
-<div class="cards" style="grid-template-columns:1fr"><div class="card"><span class="code">Languages</span>: SystemVerilog, Verilog, VHDL, C++, C, Python, CUDA</div><div class="card"><span class="code">Architecture &amp; simulation</span>: gem5, GPGPU-Sim, AccelSim, MGvm, Chipyard/BOOM, SpikeSim</div><div class="card"><span class="code">EDA &amp; flow</span>: OpenLane, Yosys, OpenSTA, Magic, KLayout, sky130, Xilinx Vivado &amp; HLS, Quartus Prime</div><div class="card"><span class="code">Platforms &amp; ML</span>: PYNQ / Zynq-7020, AXI, PCB design, GNU Radio, PyTorch, scikit-learn</div></div>
+<div class="cards" style="grid-template-columns:1fr"><div class="card"><span class="code">Languages</span>: SystemVerilog, Verilog, VHDL, C++, C, Python, CUDA</div><div class="card"><span class="code">Architecture &amp; simulation</span>: <a class="ref" href="https://www.gem5.org">gem5</a>, <a class="ref" href="https://github.com/gpgpu-sim/gpgpu-sim_distribution">GPGPU-Sim</a>, <a class="ref" href="https://accel-sim.github.io">AccelSim</a>, <a class="ref" href="https://github.com/Prayag-Mohanty/MGVm-GPU">MGvm</a>, <a class="ref" href="https://github.com/ucb-bar/chipyard">Chipyard</a>/BOOM, <a class="ref" href="https://github.com/Intelligent-Computing-Lab-Yale/SpikeSim">SpikeSim</a></div><div class="card"><span class="code">EDA &amp; flow</span>: <a class="ref" href="https://github.com/The-OpenROAD-Project/OpenLane">OpenLane</a>, <a class="ref" href="https://github.com/YosysHQ/yosys">Yosys</a>, <a class="ref" href="https://github.com/The-OpenROAD-Project/OpenSTA">OpenSTA</a>, <a class="ref" href="http://opencircuitdesign.com/magic/">Magic</a>, <a class="ref" href="https://www.klayout.de">KLayout</a>, <a class="ref" href="https://github.com/google/skywater-pdk">sky130</a>, Xilinx <a class="ref" href="https://www.xilinx.com/products/design-tools/vivado.html">Vivado</a> &amp; HLS, Quartus Prime</div><div class="card"><span class="code">Platforms &amp; ML</span>: <a class="ref" href="https://www.pynq.io">PYNQ</a> / Zynq-7020, AXI, PCB design, <a class="ref" href="https://www.gnuradio.org">GNU Radio</a>, <a class="ref" href="https://pytorch.org">PyTorch</a>, <a class="ref" href="https://scikit-learn.org">scikit-learn</a></div></div>
 
 </div></main>
 <footer><div class="wrap">© <span id="year"></span> Prayag Mohanty.</div></footer>
