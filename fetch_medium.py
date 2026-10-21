@@ -11,7 +11,7 @@ root = ET.fromstring(urllib.request.urlopen(req, timeout=30).read())
 posts = []
 for item in root.iter("item"):
     body = item.findtext("content:encoded", "", NS) or item.findtext("description", "")
-    img = re.search(r'<img[^>]+src="([^"]+)"', body)
+    img = next((m for m in re.finditer(r'<img[^>]+src="([^"]+)"', body) if "/_/stat" not in m.group(1)), None)
     text = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", body))).strip()
     posts.append({
         "title": item.findtext("title", "").strip(),
