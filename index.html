@@ -1,272 +1,52 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Prayag Mohanty</title>
-  <meta name="description" content="Prayag Mohanty: M.Tech researcher in computer architecture and VLSI at IIT Bombay.">
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prayag Mohanty</title>
+<meta name="description" content="Prayag Mohanty: M.Tech researcher in computer architecture and VLSI at IIT Bombay.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Lora:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
-  <header class="nav">
-    <a class="logo" href="#top">PM</a>
-    <nav>
-      <a href="#research">Research</a>
-      <a href="#hardware">Hardware</a>
-      <a href="#side-projects">Side projects</a>
-      <a href="#writing">Writing &amp; media</a>
-      <a href="#contact">Contact</a>
-      <button id="theme" aria-label="Toggle theme">◐</button>
-    </nav>
-  </header>
+<header class="nav"><div class="wrap"><a class="brand" href="index.html">Prayag Mohanty</a><nav><a href="index.html" class=on>About</a><a href="blog.html">Blog</a><a href="research.html">Research</a><a href="projects.html">Projects</a><a href="experience.html">Experience</a><a href="academics.html">Academics</a><button id="theme" aria-label="Toggle theme">◐</button></nav></div></header>
+<main><div class="wrap">
 
-  <main id="top">
-    <section class="hero">
-      <p class="eyebrow">Hi, I'm</p>
-      <h1>Prayag Mohanty</h1>
-      <p class="tagline">M.Tech student at IIT Bombay working on GPU architecture, VLSI and dependable systems. I also write, quiz and play badminton.</p>
-      <div class="cta">
-        <a class="btn" href="#research">See my research</a>
-        <a class="btn ghost" href="#contact">Get in touch</a>
-      </div>
-    </section>
+<div class="about"><div>
+<h1>Prayag Mohanty</h1>
+<p class="sub">M.Tech student, EE (Integrated Circuits &amp; Systems), IIT Bombay</p>
+<p>Hey! I'm Prayag, an M.Tech student at IIT Bombay, advised by <strong>Prof. Virendra Singh</strong> at the Computer Architecture and Dependable Systems Lab (CADSL). I did my B.E. (Hons.) in Electrical &amp; Electronics Engineering at BITS Pilani, Goa campus.</p>
+<p>I'm interested in computer architecture, especially where GPUs waste on-chip resources. I'm currently working on address translation for multi-chip-module GPUs, and I previously designed a locality-aware victim cache for GPU L1 data caches. I also enjoy taking designs all the way from RTL to GDSII.</p>
+<p>Outside academics, I play badminton, take part in quizzes, and write.</p>
+</div>
+<div class="side"><img class="photo" src="photo.jpg" alt="Prayag Mohanty" width="280" height="280">Mumbai, India<div class="pills"><a class="pill" href="mailto:24m1177@iitb.ac.in">Email</a><a class="pill" href="https://github.com/Prayag-Mohanty">GitHub</a><a class="pill" href="https://www.linkedin.com/in/prayag-mohanty">LinkedIn</a></div></div></div>
 
-    <section id="about">
-      <h2>About</h2>
-      <p>I'm an M.Tech student in Electrical Engineering (Integrated Circuits &amp; Systems) at IIT Bombay, advised by Prof. Virendra Singh at the Computer Architecture and Dependable Systems Lab. My research looks at where GPUs waste on-chip resources: virtual-memory translation across chiplets, L1 data-cache thrashing, and out-of-order scheduling.</p>
-      <p>Before this I did my B.E. (Hons.) in Electrical &amp; Electronics Engineering at BITS Pilani, Goa campus. Outside the lab: quizzing, badminton and writing.</p>
-    </section>
+<h2>Research Interests</h2>
+<div class="cards">
+<div class="card"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></span><h3>Computer Architecture</h3></div>
+<div class="card"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span><h3>GPU Memory Systems</h3></div>
+<div class="card"><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h3>Dependable Systems &amp; VLSI</h3></div>
+</div>
+<p style="margin-top:28px">I am a part of the following groups:</p>
+<ul class="list">
+<li><a href="research.html"><strong>CADSL</strong></a> — Computer Architecture &amp; Dependable Systems Lab<small>Prof. Virendra Singh · IIT Bombay</small></li>
+<li><strong>WEL</strong> — Wadhwani Electronics Laboratory<small>Research Assistant · IIT Bombay</small></li>
+</ul>
 
-    <section id="research">
-      <h2>Research</h2>
-      <div class="item">
-        <div class="when">Jul 2025 – Present</div>
-        <div>
-          <h3>Address Translation for Multi-Chip-Module GPUs</h3>
-          <p>M.Tech thesis. Investigating virtual-memory translation as a bottleneck when the TLB and page-walk hierarchy is split across dies. Proposes coupling TLB and cache replacement through dead-page prediction at the L1 TLB, prototyped on the MGvm MCM-GPU simulator.</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="when">Jan – May 2026</div>
-        <div>
-          <h3>Locality-Aware Victim Cache for GPGPU L1 Data Caches</h3>
-          <p>Co-designed a victim cache held in underused register-file capacity, paired with a warp scheduler that favours warps whose working set is still resident. Implemented in GPGPU-Sim on an NVIDIA Volta GV100 configuration for a 1.042× IPC gain over baseline. Presented at the Indo-Japanese Workshop on Trustable Cyber-Physical Cognitive Systems at IIT Bombay; submitted to ICCD 2026 (under review).</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="when">Jul – Dec 2025</div>
-        <div>
-          <h3>Out-of-Order Scheduling for GPUs</h3>
-          <p>M.Tech seminar. Surveyed seven out-of-order GPU proposals from ISCA, HPCA, TPDS and TACO (2016–2024) and compared their performance, power and area trade-offs. Showed that PTX-level simulation overstates available ILP, so SASS-level evaluation is the right baseline.</p>
-        </div>
-      </div>
-      <p class="note"><strong>Publication:</strong> P. Mohanty and V. Singh, “Locality-Aware Victim Caching with Locality-Aware Warp Scheduling for GPUs,” submitted to IEEE ICCD 2026.</p>
-    </section>
+<h2>News</h2>
+<ul class="news">
+<li><span class="date">2026</span><span>Submitted our paper on locality-aware victim caching for GPUs to ICCD 2026.</span></li>
+<li><span class="date">2026</span><span>Presented a poster on the victim cache at the Indo-Japanese Workshop on Trustable Cyber-Physical Cognitive Systems, IIT Bombay.</span></li>
+<li><span class="date">2026</span><span>Won the IIT Bombay PG General Championship in badminton (men's).</span></li>
+<li><span class="date">2025</span><span>Won the Institute Badminton League and the NTPC Electron Quiz Western Regionals.</span></li>
+<li><span class="date">2024</span><span>Started my M.Tech at IIT Bombay.</span></li>
+</ul>
+<div class="social"><a class="pill" href="mailto:24m1177@iitb.ac.in">Email</a><a class="pill" href="https://github.com/Prayag-Mohanty">GitHub</a><a class="pill" href="https://www.linkedin.com/in/prayag-mohanty">LinkedIn</a><a class="pill" href="https://medium.com/@topper1728">Medium</a><a class="pill" href="https://www.youtube.com/@prayag_mohanty">YouTube</a><a class="pill" href="https://www.behance.net/prayagmohanty">Behance</a></div>
+<p class="lead" style="text-align:center;font-size:14px">Feel free to reach out to me. I would love to have a chat!</p>
 
-    <section id="hardware">
-      <h2>Hardware &amp; architecture projects</h2>
-      <div class="item">
-        <div class="when">2026</div>
-        <div>
-          <h3>SS16: 16-bit superscalar processor</h3>
-          <p>In-order superscalar core in SystemVerilog with a two-pass assembler, a golden instruction-set simulator and an automated co-simulation regression. Out-of-order extension (rename, ROB, issue queue) in progress.</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="when">2026</div>
-        <div>
-          <h3>6-stage pipelined RISC processor and SAT-based ATPG</h3>
-          <p>Full datapath with forwarding and interlocks in VHDL, plus SAT-based ATPG for the 74181 ALU that cut ATPG effort 3.67×.</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="when">2026</div>
-        <div>
-          <h3>FHSS secure transmission with a hardware LWE engine</h3>
-          <p>Learning-With-Errors encryption core on a PYNQ-Z2, interfaced over AXI-Lite and AXI-DMA for a 12.87× speedup over software, with frequency hopping through a custom GNU Radio module on a USRP.</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="when">2025</div>
-        <div>
-          <h3>ML-driven LLC partitioning for CPU-GPU SoCs</h3>
-          <p>Hardware perceptron that predicts per-core cache sensitivity to set LLC way-masks, gaining 8.36% on CPU at a 7.5% GPU cost over a static split. Instrumented gem5 for the motivating results.</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="when">2024</div>
-        <div>
-          <h3>RTL-to-GDSII sequential MAC</h3>
-          <p>16×16 shift-and-add multiplier taken through the full OpenLane flow on SkyWater sky130, closing at 5.53 ns setup with zero DRC violations and clean LVS.</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="when">2023</div>
-        <div>
-          <h3>CNN inference accelerator on FPGA</h3>
-          <p>B.E. thesis. AlexNet accelerator on a Zedboard (Zynq-7020) built with Vivado HLS: 0.74 GFLOPS at about 0.9 W, with roughly 10× lower power than comparable published designs.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="experience">
-      <h2>Experience</h2>
-      <div class="item">
-        <div class="when">Jul 2024 – Present</div>
-        <div>
-          <h3>Research Assistant · Wadhwani Electronics Laboratory, IIT Bombay</h3>
-          <p>Support the Communication Lab and Electronic Design Lab, train incoming TAs on the experiments, and maintain the lab website and outreach.</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="when">Jul – Aug 2022</div>
-        <div>
-          <h3>Summer Intern · 313 Army Workshop, Pithoragarh</h3>
-          <p>Applied supervised learning to detect drones in night-vision footage for an anti-drone defence system, under the BITS PS-1 programme.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="education">
-      <h2>Education</h2>
-      <div class="item">
-        <div class="when">2024 – 2027 (expected)</div>
-        <div>
-          <h3>Indian Institute of Technology Bombay</h3>
-          <p>M.Tech, Electrical Engineering (Integrated Circuits &amp; Systems)</p>
-        </div>
-      </div>
-      <div class="item">
-        <div class="when">2020 – 2024</div>
-        <div>
-          <h3>BITS Pilani, K. K. Birla Goa Campus</h3>
-          <p>B.E. (Hons.), Electrical &amp; Electronics Engineering</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <dl class="skills">
-        <dt>Languages</dt><dd>SystemVerilog, Verilog, VHDL, C++, C, Python, CUDA</dd>
-        <dt>Architecture &amp; simulation</dt><dd>gem5, GPGPU-Sim, AccelSim, MGvm, Chipyard/BOOM, SpikeSim</dd>
-        <dt>EDA &amp; flow</dt><dd>OpenLane, Yosys, OpenSTA, Magic, KLayout, sky130, Xilinx Vivado &amp; HLS, Quartus Prime</dd>
-        <dt>Platforms &amp; ML</dt><dd>PYNQ / Zynq-7020, AXI, PCB design, GNU Radio, PyTorch, scikit-learn</dd>
-      </dl>
-    </section>
-
-    <section id="side-projects">
-      <h2>Side projects</h2>
-      <p class="lead">Public repositories from <a href="https://github.com/Prayag-Mohanty">github.com/Prayag-Mohanty</a>.</p>
-      <div class="grid">
-        <a class="card" href="https://github.com/Prayag-Mohanty/MGVm-GPU">
-          <h3>MGVm-GPU</h3>
-          <p>Multi-chip-module GPU simulator work behind my address-translation research.</p>
-          <div class="tags"><span>Go</span></div>
-        </a>
-        <a class="card" href="https://github.com/Prayag-Mohanty/gpgpu-lwdsp">
-          <h3>gpgpu-lwdsp</h3>
-          <p>GPGPU-Sim experiments for locality-aware victim caching in L1D.</p>
-          <div class="tags"><span>C</span></div>
-        </a>
-        <a class="card" href="https://github.com/Prayag-Mohanty/lwsdp">
-          <h3>lwsdp</h3>
-          <p>Locality-aware L1D cache extension, companion to the GPGPU-Sim work.</p>
-          <div class="tags"><span>C</span></div>
-        </a>
-        <a class="card" href="https://github.com/Prayag-Mohanty/GPU-SoC">
-          <h3>GPU-SoC</h3>
-          <p>CPU-GPU SoC shared last-level cache partitioning experiments.</p>
-        </a>
-        <a class="card" href="https://github.com/Prayag-Mohanty/RISC-V-Spectre">
-          <h3>RISC-V-Spectre</h3>
-          <p>Spectre-class side-channel experiments on RISC-V out-of-order cores.</p>
-        </a>
-        <a class="card" href="https://github.com/Prayag-Mohanty/Neuromorphic-Computing">
-          <h3>Neuromorphic-Computing</h3>
-          <p>Spiking neural network experiments from the neuromorphic engineering course.</p>
-          <div class="tags"><span>Jupyter</span></div>
-        </a>
-        <a class="card" href="https://github.com/Prayag-Mohanty/badminton-scoreboard">
-          <h3>badminton-scoreboard</h3>
-          <p>Upload a match recording and get a scoreboard tracking the players' points through the match.</p>
-          <div class="tags"><span>JavaScript</span></div>
-        </a>
-        <a class="card" href="https://github.com/Prayag-Mohanty/buzz-n-pounce">
-          <h3>buzz-n-pounce</h3>
-          <p>Free online quiz buzzer with a pounce round.</p>
-          <div class="tags"><span>JavaScript</span></div>
-        </a>
-        <a class="card" href="https://github.com/Prayag-Mohanty/x-quiz-site">
-          <h3>x-quiz-site</h3>
-          <p>A quiz website built in TypeScript.</p>
-          <div class="tags"><span>TypeScript</span></div>
-        </a>
-        <a class="card" href="https://github.com/Prayag-Mohanty/QM">
-          <h3>QM</h3>
-          <p>A JavaScript side project.</p>
-          <div class="tags"><span>JavaScript</span></div>
-        </a>
-        <a class="card" href="https://github.com/Prayag-Mohanty/Family-Tree">
-          <h3>Family-Tree</h3>
-          <p>Interactive family tree, deployed on Vercel.</p>
-          <div class="tags"><span>JavaScript</span></div>
-        </a>
-        <a class="card" href="https://github.com/Prayag-Mohanty/Sharada-script-practice-tool">
-          <h3>Sharada-script-practice-tool</h3>
-          <p>A tool for practising the Sharada script.</p>
-          <div class="tags"><span>HTML</span></div>
-        </a>
-        <a class="card" href="https://github.com/Prayag-Mohanty/wel-website">
-          <h3>wel-website</h3>
-          <p>Website for the Wadhwani Electronics Laboratory, IIT Bombay.</p>
-          <div class="tags"><span>HTML</span></div>
-        </a>
-      </div>
-    </section>
-
-    <section id="writing">
-      <h2>Writing &amp; media</h2>
-      <div class="grid">
-        <a class="card" href="https://medium.com/@topper1728">
-          <h3>Blog on Medium</h3>
-          <p>Essays and writing at @topper1728.</p>
-        </a>
-        <a class="card" href="https://www.youtube.com/@prayag_mohanty/featured">
-          <h3>YouTube</h3>
-          <p>Videos on my channel, @prayag_mohanty.</p>
-        </a>
-        <a class="card" href="https://www.behance.net/prayagmohanty">
-          <h3>Behance</h3>
-          <p>Design work and creative projects.</p>
-        </a>
-      </div>
-    </section>
-
-    <section id="beyond">
-      <h2>Beyond the lab</h2>
-      <ul class="plain">
-        <li><strong>Badminton:</strong> winner of the IIT Bombay PG General Championship (2026) and the Institute Badminton League (2025); represented IIT Bombay at Inter-IIT 2025 and BITS Goa at Inter-BITS (winners, 2024).</li>
-        <li><strong>Quizzing:</strong> winner of the NTPC Electron Quiz Western Regionals (2025), Zerodha Varsity Quiz Mumbai (2024, 2026) and Tata Crucible Goa (2021); finalist at Nihilanth 2026, the Inter IIT-IIM quizzing festival.</li>
-        <li><strong>Hosting:</strong> hosted the intra-campus quiz “Lord of the Rings” (2026) and anchored the PG Night of PG Cultural Phase 1 at IIT Bombay (2024).</li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Best way to reach me is email.</p>
-      <ul class="links">
-        <li><a href="mailto:24m1177@iitb.ac.in">24m1177@iitb.ac.in</a></li>
-        <li><a href="https://github.com/Prayag-Mohanty">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/prayag-mohanty">LinkedIn</a></li>
-        <li><a href="https://medium.com/@topper1728">Medium</a></li>
-        <li><a href="https://www.youtube.com/@prayag_mohanty">YouTube</a></li>
-        <li><a href="https://www.behance.net/prayagmohanty">Behance</a></li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>© <span id="year"></span> Prayag Mohanty</footer>
-  <script src="script.js"></script>
+</div></main>
+<footer><div class="wrap">© <span id="year"></span> Prayag Mohanty.</div></footer>
+<script src="script.js"></script>
 </body>
 </html>

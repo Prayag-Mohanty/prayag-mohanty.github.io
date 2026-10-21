@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research · Prayag Mohanty</title>
+<meta name="description" content="Prayag Mohanty: M.Tech researcher in computer architecture and VLSI at IIT Bombay.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Lora:wght@500;600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<header class="nav"><div class="wrap"><a class="brand" href="index.html">Prayag Mohanty</a><nav><a href="index.html">About</a><a href="blog.html">Blog</a><a href="research.html" class=on>Research</a><a href="projects.html">Projects</a><a href="experience.html">Experience</a><a href="academics.html">Academics</a><button id="theme" aria-label="Toggle theme">◐</button></nav></div></header>
+<main><div class="wrap">
+
+<h1>Research</h1><p class="sub">GPU architecture and memory systems</p>
+<div class="cards" style="grid-template-columns:1fr">
+<div class="card tl"><span class="year">Jul 2025 – Present</span><h3>Address Translation for Multi-Chip-Module GPUs</h3><p>M.Tech thesis, advised by Prof. Virendra Singh. Investigating virtual-memory translation as a bottleneck when the TLB and page-walk hierarchy is split across dies. Proposes coupling TLB and cache replacement through dead-page prediction at the L1 TLB, prototyped on the MGvm MCM-GPU simulator. Targeting a conference submission by mid-2027.</p></div>
+<div class="card tl"><span class="year">Jan – May 2026</span><h3>Locality-Aware Victim Cache for GPGPU L1 Data Caches</h3><p>Co-designed a victim cache held in underused register-file capacity, with a warp scheduler that favours warps whose working set is still resident, so retained L1D lines are re-referenced before eviction. Implemented end to end in GPGPU-Sim on an NVIDIA Volta GV100 configuration for a 1.042× IPC gain over baseline. Presented as a poster at the Indo-Japanese Workshop on Trustable Cyber-Physical Cognitive Systems, IIT Bombay (2026).</p></div>
+<div class="card tl"><span class="year">Jul – Dec 2025</span><h3>Out-of-Order Scheduling for GPUs</h3><p>M.Tech seminar. Surveyed seven out-of-order GPU proposals from ISCA, HPCA, TPDS and TACO (2016–2024), tabulating performance, power and area trade-offs: 6.9–38% speedup for 0.007–13% power and 0.05–2.4% area. Showed that PTX-level simulation overstates available ILP, so SASS-level evaluation is the right baseline.</p></div>
+</div>
+<h2>Publications</h2>
+<ul class="list"><li><strong>Locality-Aware Victim Caching with Locality-Aware Warp Scheduling for GPUs</strong><small>P. Mohanty and V. Singh · IEEE International Conference on Computer Design (ICCD) 2026 · under review</small></li></ul>
+
+</div></main>
+<footer><div class="wrap">© <span id="year"></span> Prayag Mohanty.</div></footer>
+<script src="script.js"></script>
+</body>
+</html>
