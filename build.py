@@ -106,7 +106,7 @@ repos=[("MGVm-GPU","Go","Multi-chip-module GPU simulator work behind my address-
 ("Family-Tree","JavaScript","Interactive family tree, deployed on Vercel."),
 ("Sharada-script-practice-tool","HTML","A tool for practising the Sharada script."),
 ("wel-website","HTML","Website for the Wadhwani Electronics Laboratory, IIT Bombay.")]
-SITES={"Family-Tree":"https://family-tree-praymo.vercel.app","QM":"https://prayag-mohanty.github.io/QM/","badminton-scoreboard":"https://prayag-mohanty.github.io/badminton-scoreboard/"}
+SITES={"wel-website":"https://www.ee.iitb.ac.in/~wel_iitb","Family-Tree":"https://family-tree-praymo.vercel.app","QM":"https://prayag-mohanty.github.io/QM/","badminton-scoreboard":"https://prayag-mohanty.github.io/badminton-scoreboard/"}
 HWREPO={"Microarchitectural side-channels on RISC-V out-of-order cores":"RISC-V-Spectre","ML-driven LLC partitioning for CPU-GPU SoCs":"GPU-SoC","Spiking neural networks and compute-in-memory":"Neuromorphic-Computing"}
 def links(repo,site=None):
     out=[]
