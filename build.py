@@ -2,6 +2,8 @@
 import html
 NAV=[("index.html","About"),("blog.html","Blog"),("research.html","Research"),("projects.html","Projects"),("experience.html","Experience"),("academics.html","Academics")]
 FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Lora:wght@500;600&amp;display=swap" rel="stylesheet">'
+CSS=open("style.css").read()
+JS=open("script.js").read()
 def page(fn,title,body):
     nav="".join(f'<a href="{h}"{" class=on" if h==fn else ""}>{t}</a>' for h,t in NAV)
     open(fn,"w").write(f'''<!doctype html>
@@ -12,7 +14,7 @@ def page(fn,title,body):
 <title>{title}</title>
 <meta name="description" content="Prayag Mohanty: M.Tech researcher in computer architecture and VLSI at IIT Bombay.">
 {FONTS}
-<link rel="stylesheet" href="style.css">
+<style>{CSS}</style>
 <script>try{{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}}catch(e){{}}</script>
 </head>
 <body>
@@ -21,7 +23,7 @@ def page(fn,title,body):
 {body}
 </div></main>
 <footer><div class="wrap">© <span id="year"></span> Prayag Mohanty.</div></footer>
-<script src="script.js"></script>
+<script>{JS}</script>
 </body>
 </html>
 ''')
