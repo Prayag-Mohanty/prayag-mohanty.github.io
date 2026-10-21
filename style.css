@@ -73,3 +73,13 @@ nav a.on{border-bottom-color:var(--line)}
 .post .year,.post h3,.post p{margin-left:20px;margin-right:20px}
 .post .year{margin-top:16px}
 .post p{margin-bottom:18px}
+.ico{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;color:var(--fg);transition:color .15s,border-color .15s,transform .15s}
+.ico svg{width:20px;height:20px}
+.ico:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+.ico.sm{width:34px;height:34px}
+.ico.sm svg{width:17px;height:17px}
+.pills{gap:12px}
+.social{gap:16px}
+.social .ico{width:52px;height:52px}
+.social .ico svg{width:24px;height:24px}
+.plinks{gap:10px}

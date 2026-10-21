@@ -1,10 +1,11 @@
 """Generates the static pages. Run: python3 build.py"""
-import html
+import html, re
 NAV=[("index.html","About"),("blog.html","Blog"),("research.html","Research"),("projects.html","Projects"),("experience.html","Experience"),("academics.html","Academics")]
 FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Lora:wght@500;600&amp;display=swap" rel="stylesheet">'
 CSS=open("style.css").read()
 JS=open("script.js").read()
 def page(fn,title,body):
+    body=re.sub(r"@@(\w+)@@",lambda m:LOGO[m.group(1)],body)
     nav="".join(f'<a href="{h}"{" class=on" if h==fn else ""}>{t}</a>' for h,t in NAV)
     open(fn,"w").write(f'''<!doctype html>
 <html lang="en">
@@ -34,7 +35,18 @@ SHIELD=I('<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>')
 GH="https://github.com/Prayag-Mohanty"
 LI="https://www.linkedin.com/in/prayag-mohanty"
 MAIL="mailto:24m1177@iitb.ac.in"
-def pills(): return f'<a class="pill" href="{MAIL}">Email</a><a class="pill" href="{GH}">GitHub</a><a class="pill" href="{LI}">LinkedIn</a>'
+# Brand logo paths from Simple Icons (CC0); mail and globe are outline icons.
+LOGO={
+ "github":'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>',
+ "linkedin":'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>',
+ "medium":'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.21 0A4.201 4.201 0 0 0 0 4.21v15.58A4.201 4.201 0 0 0 4.21 24h15.58A4.201 4.201 0 0 0 24 19.79v-1.093c-.137.013-.278.02-.422.02-2.577 0-4.027-2.146-4.09-4.832a7.592 7.592 0 0 1 .022-.708c.093-1.186.475-2.241 1.105-3.022a3.885 3.885 0 0 1 1.395-1.1c.468-.237 1.127-.367 1.664-.367h.023c.101 0 .202.004.303.01V4.211A4.201 4.201 0 0 0 19.79 0Zm.198 5.583h4.165l3.588 8.435 3.59-8.435h3.864v.146l-.019.004c-.705.16-1.063.397-1.063 1.254h-.003l.003 10.274c.06.676.424.885 1.063 1.03l.02.004v.145h-4.923v-.145l.019-.005c.639-.144.994-.353 1.054-1.03V7.267l-4.745 11.15h-.261L6.15 7.569v9.445c0 .857.358 1.094 1.063 1.253l.02.004v.147H4.405v-.147l.019-.004c.705-.16 1.065-.397 1.065-1.253V6.987c0-.857-.358-1.094-1.064-1.254l-.018-.004zm19.25 3.668c-1.086.023-1.733 1.323-1.813 3.124H24V9.298a1.378 1.378 0 0 0-.342-.047Zm-1.862 3.632c-.1 1.756.86 3.239 2.204 3.634v-3.634z"/></svg>',
+ "youtube":'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>',
+ "behance":'<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.969 16.927a2.561 2.561 0 0 0 1.901.677 2.501 2.501 0 0 0 1.531-.475c.362-.235.636-.584.779-.99h2.585a5.091 5.091 0 0 1-1.9 2.896 5.292 5.292 0 0 1-3.091.88 5.839 5.839 0 0 1-2.284-.433 4.871 4.871 0 0 1-1.723-1.211 5.657 5.657 0 0 1-1.08-1.874 7.057 7.057 0 0 1-.383-2.393c-.005-.8.129-1.595.396-2.349a5.313 5.313 0 0 1 5.088-3.604 4.87 4.87 0 0 1 2.376.563c.661.362 1.231.87 1.668 1.485a6.2 6.2 0 0 1 .943 2.133c.194.821.263 1.666.205 2.508h-7.699c-.063.79.184 1.574.688 2.187ZM6.947 4.084a8.065 8.065 0 0 1 1.928.198 4.29 4.29 0 0 1 1.49.638c.418.303.748.711.958 1.182.241.579.357 1.203.341 1.83a3.506 3.506 0 0 1-.506 1.961 3.726 3.726 0 0 1-1.503 1.287 3.588 3.588 0 0 1 2.027 1.437c.464.747.697 1.615.67 2.494a4.593 4.593 0 0 1-.423 2.032 3.945 3.945 0 0 1-1.163 1.413 5.114 5.114 0 0 1-1.683.807 7.135 7.135 0 0 1-1.928.259H0V4.084h6.947Zm-.235 12.9c.308.004.616-.029.916-.099a2.18 2.18 0 0 0 .766-.332c.228-.158.411-.371.534-.619.142-.317.208-.663.191-1.009a2.08 2.08 0 0 0-.642-1.715 2.618 2.618 0 0 0-1.696-.505h-3.54v4.279h3.471Zm13.635-5.967a2.13 2.13 0 0 0-1.654-.619 2.336 2.336 0 0 0-1.163.259 2.474 2.474 0 0 0-.738.62 2.359 2.359 0 0 0-.396.792c-.074.239-.12.485-.137.734h4.769a3.239 3.239 0 0 0-.679-1.785l-.002-.001Zm-13.813-.648a2.254 2.254 0 0 0 1.423-.433c.399-.355.607-.88.56-1.413a1.916 1.916 0 0 0-.178-.891 1.298 1.298 0 0 0-.495-.533 1.851 1.851 0 0 0-.711-.274 3.966 3.966 0 0 0-.835-.073H3.241v3.631h3.293v-.014ZM21.62 5.122h-5.976v1.527h5.976V5.122Z"/></svg>',
+ "mail":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>',
+ "globe":'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>',
+}
+def ico(href,name,label,cls="ico"): return f'<a class="{cls}" href="{href}" aria-label="{label}" title="{label}">{LOGO[name]}</a>'
+def pills(): return ico(MAIL,"mail","Email")+ico(GH,"github","GitHub")+ico(LI,"linkedin","LinkedIn")
 
 # ---------- About ----------
 page("index.html","Prayag Mohanty",f'''
@@ -67,7 +79,7 @@ page("index.html","Prayag Mohanty",f'''
 <li><span class="date">2025</span><span>Won the Institute Badminton League and the NTPC Electron Quiz Western Regionals.</span></li>
 <li><span class="date">2024</span><span>Started my M.Tech at IIT Bombay.</span></li>
 </ul>
-<div class="social">{pills()}<a class="pill" href="https://medium.com/@topper1728">Medium</a><a class="pill" href="https://www.youtube.com/@prayag_mohanty">YouTube</a><a class="pill" href="https://www.behance.net/prayagmohanty">Behance</a></div>
+<div class="social">{pills()}{ico("https://medium.com/@topper1728","medium","Medium")}{ico("https://www.youtube.com/@prayag_mohanty","youtube","YouTube")}{ico("https://www.behance.net/prayagmohanty","behance","Behance")}</div>
 <p class="lead" style="text-align:center;font-size:14px">Feel free to reach out to me. I would love to have a chat!</p>
 ''')
 
@@ -110,8 +122,8 @@ SITES={"wel-website":"https://www.ee.iitb.ac.in/~wel_iitb","Family-Tree":"https:
 HWREPO={"Microarchitectural side-channels on RISC-V out-of-order cores":"RISC-V-Spectre","ML-driven LLC partitioning for CPU-GPU SoCs":"GPU-SoC","Spiking neural networks and compute-in-memory":"Neuromorphic-Computing"}
 def links(repo,site=None):
     out=[]
-    if repo: out.append(f'<a href="{GH}/{repo}">GitHub ↗</a>')
-    if site: out.append(f'<a href="{site}">Live site ↗</a>')
+    if repo: out.append(ico(f"{GH}/{repo}","github","GitHub repository","ico sm"))
+    if site: out.append(ico(site,"globe","Live site","ico sm"))
     return f'<div class="plinks">{"".join(out)}</div>' if out else ''
 hwh="".join(f'<div class="card tl"><span class="year">{y}</span><h3>{t}</h3><p>{d}</p><div class="tags">{"".join(f"<span>{x}</span>" for x in g)}</div>{links(HWREPO.get(t))}</div>' for y,t,d,g in hw)
 rh="".join(f'<div class="card"><h3>{n}</h3><p>{d}</p>'+(f'<div class="tags"><span>{l}</span></div>' if l else '')+links(n,SITES.get(n))+'</div>' for n,l,d in repos)
@@ -132,8 +144,8 @@ page("blog.html","Blog · Prayag Mohanty",'''
 <p class="lead" style="margin-top:18px"><a href="https://medium.com/@topper1728">Read everything on Medium →</a></p>
 <h2>Elsewhere</h2>
 <div class="cards">
-<a class="card" href="https://www.youtube.com/@prayag_mohanty/featured"><h3>YouTube</h3><p>Videos on my channel, @prayag_mohanty.</p></a>
-<a class="card" href="https://www.behance.net/prayagmohanty"><h3>Behance</h3><p>Design work and creative projects.</p></a>
+<a class="card" href="https://www.youtube.com/@prayag_mohanty/featured"><span class="icon">@@youtube@@</span><h3>YouTube</h3><p>Videos on my channel, @prayag_mohanty.</p></a>
+<a class="card" href="https://www.behance.net/prayagmohanty"><span class="icon">@@behance@@</span><h3>Behance</h3><p>Design work and creative projects.</p></a>
 </div>
 <script>
 (function(){
