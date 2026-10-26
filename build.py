@@ -79,6 +79,7 @@ def page(fn,title,body):
 <title>{title}</title>
 <meta name="description" content="{DESC}">
 <meta name="author" content="Prayag Mohanty">
+<meta name="google-site-verification" content="uwPPnk4GYmxsu8mS6GWtbcmdCKl9_TvqakevJN1ojJI">
 <link rel="canonical" href="{url}">
 <meta property="og:type" content="{"profile" if fn=="index.html" else "website"}">
 <meta property="og:site_name" content="Prayag Mohanty">
