@@ -183,14 +183,17 @@ page("research.html","Research · Prayag Mohanty",f'''
 ''')
 
 # ---------- Projects ----------
-hw=[("2026","SS16: 16-bit superscalar processor","In-order superscalar core in SystemVerilog with a two-pass assembler, a golden instruction-set simulator and an automated co-simulation regression. Out-of-order extension (rename, ROB, issue queue) in progress.",["SystemVerilog"]),
-("2026","6-stage pipelined RISC processor and SAT-based ATPG","Full datapath with forwarding and interlocks in VHDL, plus SAT-based ATPG for the 74181 ALU that cut ATPG effort 3.67×.",["VHDL","ATPG"]),
-("2026","FHSS secure transmission with a hardware LWE engine","Learning-With-Errors encryption core on a PYNQ-Z2, interfaced over AXI-Lite and AXI-DMA for a 12.87× speedup over software, with frequency hopping through a custom GNU Radio module on a USRP.",["Verilog","FPGA"]),
+# Ordered by research weight, not date.
+hw=[("Jul 2025 – Present","Address translation for multi-chip-module GPUs (M.Tech thesis)","Advised by Prof. Virendra Singh. Virtual-memory translation on MCM-GPUs, where the TLB and page-walk hierarchy is split across dies. Couples TLB and cache replacement through dead-page prediction at the L1 TLB, prototyped on the MGvm simulator. Details on the <a href=\"research.html\">Research</a> page.",["MGvm","GPU"]),
+("2026","SS16: 16-bit superscalar processor","In-order dual-issue core in SystemVerilog with a two-pass assembler and a golden instruction-set simulator. Every regression run co-simulates RTL against the ISS and diffs architectural state, so a mismatch reports the instruction that caused it rather than a failing waveform. Adding register rename, a ROB and an issue queue for out-of-order issue.",["SystemVerilog"]),
+("2025","ML-driven LLC partitioning for CPU-GPU SoCs (design and motivation study)","A hardware perceptron reading per-core IPC, MPKI and memory-queue occupancy, resetting LLC way-masks every 1M cycles. Motivation from counters I added to gem5: the static split it replaces buys 8.36% on the CPU at a cost of 7.5% on the GPU, which is exactly the trade a sensitivity-aware policy should not have to make.",["gem5"]),
+("2023","CNN inference accelerator on FPGA","B.E. thesis. AlexNet on a Zedboard (Zynq-7020) with a pipelined core and kernel/bias/input/output caches; fixed-point widths sized with Ristretto in Vivado HLS. 36,527 LUTs, 54 BRAM, 35 DSP at 0.74 GOPS and ~0.9 W: 7–64× fewer DSPs and ~10× lower power than comparable published accelerators.",["Vivado HLS","FPGA"]),
+("2024","RTL-to-GDSII sequential MAC","16×16 shift-and-add multiplier taken from RTL to GDSII with OpenLane on SkyWater sky130. Closed at 5.53 ns setup and 0.48 ns hold across corners; 8,168 µm², 2.59 mW, DRC and LVS clean.",["OpenLane","sky130"]),
 ("2026","Microarchitectural side-channels on RISC-V out-of-order cores","Reproduced Spectre-class cache and prefetcher side-channel primitives on a RISC-V out-of-order core, with the toolchain and full-system gem5 + Chipyard flow built end to end.",["gem5","Chipyard"]),
-("2025","ML-driven LLC partitioning for CPU-GPU SoCs","Hardware perceptron that predicts per-core cache sensitivity to set LLC way-masks every 1M cycles, gaining 8.36% on CPU at a 7.5% GPU cost over a static split. Instrumented gem5 for the motivating results.",["gem5"]),
+("2026","FHSS secure transmission with a hardware LWE engine","Learning-With-Errors encryption core on a PYNQ-Z2, interfaced over AXI-Lite and AXI-DMA for a 12.87× speedup over software, with frequency hopping through a custom GNU Radio module on a USRP.",["Verilog","FPGA"]),
 ("2025","Spiking neural networks and compute-in-memory","Compared supervised deep SNNs with unsupervised STDP on MNIST (93.8% for the supervised model) and evaluated compute-in-memory inference in SpikeSim on a 64×64 crossbar at 65 nm.",["Python","SNN"]),
-("2024","RTL-to-GDSII sequential MAC","16×16 shift-and-add multiplier taken through the full OpenLane flow on SkyWater sky130, closing at 5.53 ns setup with zero DRC violations and clean LVS. 6× smaller and 19× lower power than a parallel FIR.",["OpenLane","sky130"]),
-("2023","CNN inference accelerator on FPGA","B.E. thesis. AlexNet accelerator on a Zedboard (Zynq-7020) with Vivado HLS: 0.74 GFLOPS at about 0.9 W, with roughly 10× lower power than comparable published designs.",["Vivado HLS","FPGA"])]
+("2025","6-stage pipelined RISC processor","Full datapath with forwarding and interlocks, in VHDL.",["VHDL"]),
+("2026","SAT-based ATPG for the 74181 ALU","Tseitin CNF encoding into MiniSat with fault collapsing; ATPG runtime down 3.67×.",["ATPG","SAT"])]
 repos=[("MGVm-GPU","Go","Multi-chip-module GPU simulator work behind my address-translation research."),
 ("gpgpu-lwdsp","C","GPGPU-Sim experiments for locality-aware victim caching in L1D."),
 ("lwsdp","C","Locality-aware L1D cache extension, companion to the GPGPU-Sim work."),
@@ -205,7 +208,7 @@ repos=[("MGVm-GPU","Go","Multi-chip-module GPU simulator work behind my address-
 ("Sharada-script-practice-tool","HTML","A tool for practising the Sharada script."),
 ("wel-website","HTML","Website for the Wadhwani Electronics Laboratory, IIT Bombay.")]
 SITES={"wel-website":"https://www.ee.iitb.ac.in/~wel_iitb","Family-Tree":"https://family-tree-praymo.vercel.app","QM":"https://prayag-mohanty.github.io/QM/","badminton-scoreboard":"https://prayag-mohanty.github.io/badminton-scoreboard/"}
-HWREPO={"Microarchitectural side-channels on RISC-V out-of-order cores":"RISC-V-Spectre","ML-driven LLC partitioning for CPU-GPU SoCs":"GPU-SoC","Spiking neural networks and compute-in-memory":"Neuromorphic-Computing"}
+HWREPO={"Address translation for multi-chip-module GPUs (M.Tech thesis)":"MGVm-GPU","Microarchitectural side-channels on RISC-V out-of-order cores":"RISC-V-Spectre","ML-driven LLC partitioning for CPU-GPU SoCs (design and motivation study)":"GPU-SoC","Spiking neural networks and compute-in-memory":"Neuromorphic-Computing"}
 def links(repo,site=None):
     out=[]
     if repo: out.append(ico(f"{GH}/{repo}","github","GitHub repository","ico sm"))
